@@ -22,14 +22,18 @@ yum install -y puppet-server
 echo "### Adding cron jobs for root and master:"
 
 checkCron=`crontab -l -u master | grep -e "^\*.*gitupdate\.sh$"`
-if [ "${checkCron}" == ""];
+if [ "${checkCron}" == "" ];
   then
     { crontab -l -u master; echo '*/1 * * * * /usr/local/bin/gitupdate.sh'; } | crontab -u master -
+  else
+    echo "Gitupdate cron job for master already is added."
 fi
 checkCron=`crontab -l -u root | grep -e "^\*.*papply\.sh$"`
-if [ "${checkCron}" == ""];
+if [ "${checkCron}" == "" ];
   then
     { crontab -l -u root; echo '*/1 * * * * /usr/local/bin/papply.sh'; } | crontab -u root -
+  else
+    echo "Papply cron job for root already is added."
 fi
 
 echo "### Done."
