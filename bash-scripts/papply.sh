@@ -1,4 +1,4 @@
 #!/bin/sh
 
-homeDir=/home/master
-puppet apply $homeDir/puppetlab-$HOSTNAME/puppet/manifests/site.pp --modulepath=$homeDir/puppet/modules/ $*
+checkoutDir=/home/master/puppetlab-${HOSTNAME}
+puppet apply ${checkoutDir}/puppet/manifests/site.pp --modulepath=${checkout}/puppet/modules/ $*
