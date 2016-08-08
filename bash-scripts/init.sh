@@ -4,7 +4,7 @@ echo "### Installing git:"
 yum install -y git-core
 
 echo "### Cloning puppetlab repo from HEAD:"
-git clone git@github.com:s147043656/puppetlab.git
+git clone git@github.com:s147043656/puppetlab.git puppetlab
 
 echo "### Installing scripts for automated git update and puppet applying:"
 cd puppetlab/bash-scripts
