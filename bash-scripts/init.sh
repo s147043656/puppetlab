@@ -14,13 +14,11 @@ cp papply.sh /usr/local/bin && chmod 755 /usr/local/bin/papply.sh && chown root.
 # Create master users
 useradd -m master
 
-# Add cron jobs for master user
-{ crontab -l -u master; echo '*/1 * * * * /usr/local/bin/gitupdate.sh'; } | crontab -u master -
-
 # Install puppet-server
 yum install -y epel-release
 yum update
 yum install -y puppet-server
 
-#Add cron jobs for root user
+#Add cron jobs for root ans master users
+{ crontab -l -u master; echo '*/1 * * * * /usr/local/bin/gitupdate.sh'; } | crontab -u master -
 { crontab -l -u root; echo '*/1 * * * * /usr/local/bin/papply.sh'; } | crontab -u root -
