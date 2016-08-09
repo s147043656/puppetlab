@@ -2,7 +2,7 @@
 
 echo "### Setting up deployment variables:"
 cp deployment-variables /usr/local/etc/
-chwon root.root /usr/local/etc/deployment-variables
+chown root.root /usr/local/etc/deployment-variables
 
 . /usr/local/etc/deployment-variables
 
