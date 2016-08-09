@@ -1,6 +1,6 @@
 # Manage standard set of packages
 
-class basepack1 {
+class base {
   package { [ 'vim-enhanced', 'mc', 'wget', 'telnet' ]:
     ensure => installed,
   }
