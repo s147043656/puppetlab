@@ -6,12 +6,18 @@ node 'c7i1.vtdomain' {
 
 node 'c7i11.vtdomain' {
   file { '/tmp/hello':
-    content => "Hello c7i11!\n"
+    content => "Hello c7i11!\n",
+  }
+  package {'vim':
+    enshure => installed,
   }
 }
 
 node 'c7i12.vtdomain' {
   file { '/tmp/hello':
-    content => "Hello c7i12!\n"
+    content => "Hello c7i12!\n",
+  }
+  package {'vim':
+    enshure => installed,
   }
 }
