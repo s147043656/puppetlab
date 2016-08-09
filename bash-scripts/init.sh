@@ -2,6 +2,16 @@
 
 # This script installs deployment system to use git and puppet
 
+if [ $# -lt 1 ];
+  then
+    echo "Usage: $0 newHostName"
+  exit 1
+fi
+
+echo "### Renaming host to new name $1:"
+hostnamectl set-hostname $1
+echo "### Done."
+
 echo "### Installing deployment scripts and variables:"
 cp deployment-variables /usr/local/etc/
 . /usr/local/etc/deployment-variables
