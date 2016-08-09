@@ -6,5 +6,7 @@ class mysql {
   }
   service { 'mariadb':
     ensure => running,
+    enable => true,
+    require => Package['mariabd-server],
   }
 }
