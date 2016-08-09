@@ -1,4 +1,5 @@
 #!/bin/sh
 
-checkoutDir=/home/master/puppetlab-${HOSTNAME}
-puppet apply ${checkoutDir}/puppet/manifests/site.pp --modulepath=${checkout}/puppet/modules/ $*
+. /usr/local/etc/deployment-variables
+
+puppet apply ${gitDir}/puppet/manifests/site.pp --modulepath=${gitDir}/puppet/modules/ $*

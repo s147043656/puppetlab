@@ -1,8 +1,10 @@
 #!/bin/bash
 
-if [ ! -d ~/puppetlab-${HOSTNAME} ];
+. /usr/local/etc/deployment-variables
+
+if [ ! -d ~/${gitDir} ];
   then
-    git clone -b ${HOSTNAME} git@github.com:s147043656/puppetlab.git puppetlab-${HOSTNAME}
+    git clone -b ${branchName} ${gitUrl} ${gitDir}
   else
-    cd ~/puppetlab-${HOSTNAME} && git pull
+    cd ~/${gitDir} && git pull
 fi

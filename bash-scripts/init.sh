@@ -1,15 +1,19 @@
 #!/bin/bash
 
-userName=master
+echo "### Setting up deployment variables:"
+cp deployment-variables /usr/local/etc/
+chwon root.root /usr/local/etc/deployment-variables
+
+. /usr/local/etc/deployment-variables
 
 echo "### Installing git:"
 yum install -y git-core
 
 echo "### Cloning puppetlab repo from HEAD:"
-git clone git@github.com:s147043656/puppetlab.git puppetlab
+git clone ${gitUrl} ${gitDir}
 
 echo "### Installing scripts for automated git update and puppet applying:"
-cd puppetlab/bash-scripts
+cd ${gitDir}/bash-scripts
 cp gitupdate.sh /usr/local/bin && chmod 755 /usr/local/bin/gitupdate.sh && chown root.root /usr/local/bin/gitupdate.sh
 cp papply.sh /usr/local/bin && chmod 755 /usr/local/bin/papply.sh && chown root.root /usr/local/bin/papply.sh
 
