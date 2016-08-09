@@ -1,49 +1,40 @@
 #!/bin/bash
 
-echo "### Setting up deployment variables:"
+# This script installs deployment system to use git and puppet
+
+echo "### Installing deployment scripts and variables:"
 cp deployment-variables /usr/local/etc/
-chown root.root /usr/local/etc/deployment-variables
-
 . /usr/local/etc/deployment-variables
-
-echo "### Installing git:"
-yum install -y git-core
-
-echo "### Cloning puppetlab repo from HEAD:"
-git clone ${gitUrl} ${gitDir}
-
-echo "### Installing scripts for automated git update and puppet applying:"
-cd ${gitDir}/bash-scripts
 cp gitupdate.sh /usr/local/bin && chmod 755 /usr/local/bin/gitupdate.sh && chown root.root /usr/local/bin/gitupdate.sh
 cp papply.sh /usr/local/bin && chmod 755 /usr/local/bin/papply.sh && chown root.root /usr/local/bin/papply.sh
+echo "### Done."
 
-echo "###Creating of  ${userName} user:"
+echo "### Creating ${userName} user:"
 useradd -m ${userName}
-
-echo "### Installing SSH keys:"
 cp -a /root/.ssh /home/${userName}
 chown -R ${userName}.${userName} /home/${userName}/.ssh
+echo "### Done."
 
-echo "### Installing puppet-server:"
-yum install -y epel-release
-yum update
+echo "### Installing pupper-server:"
 yum install -y puppet-server
+echo "### Done."
 
-echo "### Adding cron jobs for root and ${userName}:"
-
+echo "### Cron for ${userName}:"
 checkCron=`crontab -l -u ${userName} | grep -e "^\*.*gitupdate\.sh$"`
 if [ "${checkCron}" == "" ];
   then
     { crontab -l -u ${userName}; echo '*/1 * * * * /usr/local/bin/gitupdate.sh'; } | crontab -u ${userName} -
   else
-    echo "Gitupdate cron job for ${userName} already is added."
+    echo "Gitupdate cron job for ${userName} was already added."
 fi
+echo "### Done."
+
+echo "### Cron for root:"
 checkCron=`crontab -l -u root | grep -e "^\*.*papply\.sh$"`
 if [ "${checkCron}" == "" ];
   then
     { crontab -l -u root; echo '*/1 * * * * /usr/local/bin/papply.sh'; } | crontab -u root -
   else
-    echo "Papply cron job for root already is added."
+    echo "Papply cron job for root was already added."
 fi
-
 echo "### Done."
