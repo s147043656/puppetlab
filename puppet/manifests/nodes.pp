@@ -9,7 +9,7 @@ node 'c7i11.vtdomain' {
     content => "Hello c7i11!\n",
   }
   package {'vim':
-    enshure => installed,
+    ensure => installed,
   }
 }
 
@@ -18,6 +18,6 @@ node 'c7i12.vtdomain' {
     content => "Hello c7i12!\n",
   }
   package {'vim':
-    enshure => installed,
+    ensure => installed,
   }
 }
