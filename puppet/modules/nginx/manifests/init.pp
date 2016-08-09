@@ -7,4 +7,5 @@ class nginx {
   service { 'nginx':
     ensure => running,
     require => Package['nginx'],
+  }
 }
