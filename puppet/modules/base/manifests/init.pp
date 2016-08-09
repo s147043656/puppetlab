@@ -1,7 +1,7 @@
 # Manage standard set of packages
 
 class base {
-  package { [ 'vim-enhanced', 'mc', 'wget', 'telnet' ]:
+  package { [ 'mailx', 'vim-enhanced', 'mc', 'wget', 'telnet' ]:
     ensure => installed,
   }
   package { 'tcpdump':
