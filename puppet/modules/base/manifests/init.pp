@@ -4,4 +4,7 @@ class base {
   package { [ 'vim-enhanced', 'mc', 'wget', 'telnet' ]:
     ensure => installed,
   }
+  package { 'tcpdump':
+    ensure => latest,
+  }
 }
