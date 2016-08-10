@@ -23,4 +23,9 @@ class nginx {
 #    refreshonly => true,
 #  }
 
+  file { '/etc/nginx/sites-enables/default':
+    source => 'puppet:///modules/nginx/cat-pictures.conf',
+#    notify => Service['nginx'],
+  }
+
 }
