@@ -21,6 +21,6 @@ class nginx {
 #  exec { 'Save iptables':
 #    command     => "service iptables save",
 #    refreshonly => true,
-  }
+#  }
 
 }
