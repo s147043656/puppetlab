@@ -23,8 +23,8 @@ class nginx {
 #    refreshonly => true,
 #  }
 
-  file { '/etc/nginx/conf':
-    source => 'puppet:///modules/nginx/conf',
+  file { '/etc/nginx':
+    source => 'puppet:///modules/nginx/configs',
     recurse => 'true',
     require => Package['nginx'],
     notify => Service['nginx'],
