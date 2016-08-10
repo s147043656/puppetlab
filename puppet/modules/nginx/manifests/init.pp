@@ -30,14 +30,14 @@ class nginx {
     notify => Service['nginx'],
   }
 
-  file { '/var/www2':
+  file { '/var/www':
     ensure => directory,
   }
 
-  file { '/var/www':
-    source => 'puppet:///modules/nginx/www',
+  file { '/var/www/cat-pictures':
+    source => 'puppet:///modules/nginx/www/cat-pictures',
     recurse => 'true',
-    require => Package['nginx'],
+    require => [ Package['nginx'], File['/var/www'] ]
   }
 
 }
