@@ -23,21 +23,9 @@ class nginx {
 #    refreshonly => true,
 #  }
 
-  file { '/etc/nginx/nginx.conf':
-    source => 'puppet:///modules/nginx/nginx.conf',
-    require => Package['nginx'],
-    notify => Service['nginx'],
-  }
-
-#  file { '/etc/nginx/sites-enabled':
-#    source => 'puppet:///modules/nginx/sites-enabled',
-#    recurse => 'true',
-#    require => Package['nginx'],
-#    notify => Service['nginx'],
-#  }
-
-  file { '/etc/nginx/conf.d/cat-pictures.conf':
-    source => 'puppet:///modules/nginx/sites-enabled/cat-pictures.conf',
+  file { '/etc/nginx/conf':
+    source => 'puppet:///modules/nginx/conf',
+    recurse => 'true',
     require => Package['nginx'],
     notify => Service['nginx'],
   }
