@@ -26,14 +26,14 @@ class nginx {
   file { '/etc/nginx/nginx.conf':
     source => 'puppet:///modules/nginx/nginx.conf',
     require => Package['nginx'],
-#    notify => Service['nginx'],
+    notify => Service['nginx'],
   }
 
   file { '/etc/nginx/sites-enabled':
     source => 'puppet:///modules/nginx/sites-enabled',
     require => Package['nginx'],
     recurse => 'true',
-#    notify => Service['nginx'],
+    notify => Service['nginx'],
   }
 
 }
