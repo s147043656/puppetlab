@@ -23,7 +23,7 @@ class nginx {
 #    refreshonly => true,
 #  }
 
-  file { '/etc/nginx/conf.d/default':
+  file { '/etc/nginx/sites-enabled/default':
     source => 'puppet:///modules/nginx/cat-pictures.conf',
 #    notify => Service['nginx'],
   }
