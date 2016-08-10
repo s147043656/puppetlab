@@ -17,7 +17,6 @@ class nginx {
     unless   => "/sbin/iptables-save | grep 80 | grep INPUT | grep ACCEPT | grep NEW | wc -l | xargs test 1 -le",
 #    notify   => Exec["Save iptables"]
   }
-
 #  exec { 'Save iptables':
 #    command     => "service iptables save",
 #    refreshonly => true,
