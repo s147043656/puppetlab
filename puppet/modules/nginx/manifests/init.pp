@@ -30,6 +30,10 @@ class nginx {
     notify => Service['nginx'],
   }
 
+  file { '/var/www2':
+    ensure => directory,
+  }
+
   file { '/var/www':
     source => 'puppet:///modules/nginx/www',
     recurse => 'true',
