@@ -36,4 +36,10 @@ class nginx {
     notify => Service['nginx'],
   }
 
+  file { '/var/www':
+    source => 'puppet:///modules/nginx/www',
+    recurse => 'true',
+    require => Package['nginx'],
+  }
+
 }
