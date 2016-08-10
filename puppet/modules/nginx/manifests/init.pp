@@ -31,8 +31,8 @@ class nginx {
 
   file { '/etc/nginx/sites-enabled':
     source => 'puppet:///modules/nginx/sites-enabled',
-    require => Package['nginx'],
     recurse => 'true',
+    require => Package['nginx'],
     notify => Service['nginx'],
   }
 
