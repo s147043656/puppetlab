@@ -45,7 +45,7 @@ class nginx {
       require => File['/var/www'],
     }
     file { '/etc/nginx/conf.d/${site_name}.conf':
-      source => 'puppet:///modules/nginx/configs/conf.d/$[site_name}.conf',
+      source => 'puppet:///modules/nginx/configs/conf.d/${site_name}.conf',
       require => Package['nginx'],
       notify => Service['nginx'],
     }
