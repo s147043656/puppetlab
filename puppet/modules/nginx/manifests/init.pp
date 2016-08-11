@@ -39,13 +39,13 @@ class nginx {
 #  }
 
   define deploy_site_job ( $site_name ) {
-    file { '/var/www/${site_name}':
-      source => 'puppet:///modules/nginx/www/${site_name}',
+    file { "/var/www/${site_name}":
+      source => "puppet:///modules/nginx/www/${site_name}",
       recurse => 'true',
       require => File['/var/www'],
     }
-    file { '/etc/nginx/conf.d/${site_name}.conf':
-      source => 'puppet:///modules/nginx/configs/conf.d/${site_name}.conf',
+    file { "/etc/nginx/conf.d/${site_name}.conf":
+      source => "puppet:///modules/nginx/configs/conf.d/${site_name}.conf",
       require => Package['nginx'],
       notify => Service['nginx'],
     }
