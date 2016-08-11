@@ -22,9 +22,8 @@ class nginx {
 #    refreshonly => true,
 #  }
 
-  file { '/etc/nginx':
-    source => 'puppet:///modules/nginx/configs',
-    recurse => 'true',
+  file { '/etc/nginx/nginx.conf':
+    source => 'puppet:///modules/nginx/configs/nginx.conf',
     require => Package['nginx'],
     notify => Service['nginx'],
   }
@@ -33,10 +32,26 @@ class nginx {
     ensure => directory,
   }
 
-  file { '/var/www/cat-pictures':
-    source => 'puppet:///modules/nginx/www/cat-pictures',
-    recurse => 'true',
-    require => [ Package['nginx'], File['/var/www'] ]
+#  file { '/var/www/cat-pictures':
+#    source => 'puppet:///modules/nginx/www/cat-pictures',
+#    recurse => 'true',
+#    require => [ Package['nginx'], File['/var/www'] ]
+#  }
+
+  define deploy_site_job () {
+    file { '/var/www/${site_name}':
+      source => 'puppet:///modules/nginx/www/${site_name}',
+      recurse => 'true',
+      require => File['/var/www'],
+    }
+    file { '/etc/nginx/conf.d/${site_name}.conf':
+      source => 'puppet:///modules/nginx/configs/conf.d/$[site_name}.conf',
+      require => Package['nginx'],
+      notify => Service['nginx'],
+    }
+  }
+
+  deploy_site_job {'cat-pictures':
   }
 
 }
