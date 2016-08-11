@@ -38,7 +38,7 @@ class nginx {
 #    require => [ Package['nginx'], File['/var/www'] ]
 #  }
 
-  define deploy_site_job ( $site_name ) {
+  define deploy_site_job ( $site_name = $title ) {
     file { "/var/www/${site_name}":
       source => "puppet:///modules/nginx/www/${site_name}",
       recurse => 'true',
@@ -52,10 +52,7 @@ class nginx {
   }
 
   $sites_list = ["cat-pictures", "dog-pictures", "hamster-pictures"]
-  $sites_list.each |String $onesite| {
-    deploy_site_job { "Deploy all nginx sites":
-      site_name = "$onesite",
-    }
+  deploy_site_job { $sites_list: }
   }
 
 }
