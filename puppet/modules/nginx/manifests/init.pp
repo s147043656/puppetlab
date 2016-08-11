@@ -38,7 +38,7 @@ class nginx {
 #    require => [ Package['nginx'], File['/var/www'] ]
 #  }
 
-  define deploy_site_job () {
+  define deploy_site_job ( ${site_name} ) {
     file { '/var/www/${site_name}':
       source => 'puppet:///modules/nginx/www/${site_name}',
       recurse => 'true',
