@@ -51,7 +51,7 @@ class nginx {
     }
   }
 
-  deploy_site_job {'cat-pictures':
+  deploy_site_job { 'cat-pictures':
   }
 
 }
