@@ -51,8 +51,11 @@ class nginx {
     }
   }
 
-  deploy_site_job { 'nginx-sites':
-    site_name => [ ['cat-pictures'], ['dog-pictures'], ['hamster-pictures'] ],
+  $sites_list = ["cat-pictures", "dog-pictures", "hamster-pictures"]
+  $sites_list.each |String $sites_list|{
+    deploy_site_job { 'nginx-sites':
+      site_name => $sites_list
+    }
   }
 
 }
