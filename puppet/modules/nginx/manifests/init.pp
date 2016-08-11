@@ -52,7 +52,7 @@ class nginx {
   }
 
   deploy_site_job { 'nginx-sites':
-    site_name => 'cat-pictures',
+    site_name => [ 'cat-pictures', 'dog-pictures', 'hamster-pictures' ],
   }
 
 }
