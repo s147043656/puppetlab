@@ -17,6 +17,7 @@ class nginx {
     unless   => "/sbin/iptables-save | grep 80 | grep INPUT | grep ACCEPT | grep NEW | wc -l | xargs test 1 -le",
 #    notify   => Exec["Save iptables"]
   }
+#  Disabled due to deprication in systemd usage
 #  exec { 'Save iptables':
 #    command     => "service iptables save",
 #    refreshonly => true,
@@ -32,6 +33,7 @@ class nginx {
     ensure => directory,
   }
 
+#  Old manual way
 #  file { '/var/www/cat-pictures':
 #    source => 'puppet:///modules/nginx/www/cat-pictures',
 #    recurse => 'true',
@@ -45,7 +47,7 @@ class nginx {
       require => File['/var/www'],
     }
     file { "/etc/nginx/conf.d/${site_name}.conf":
-      source => "puppet:///modules/nginx/configs/conf.d/${site_name}.conf",
+      content => template('nginx/vhost.conf.erb'),
       require => Package['nginx'],
       notify => Service['nginx'],
     }
