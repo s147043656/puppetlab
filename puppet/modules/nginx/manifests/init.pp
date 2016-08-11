@@ -53,6 +53,5 @@ class nginx {
 
   $sites_list = ["cat-pictures", "dog-pictures", "hamster-pictures"]
   deploy_site_job { $sites_list: }
-  }
 
 }
