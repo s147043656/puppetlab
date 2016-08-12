@@ -8,12 +8,13 @@ class docker {
 
   package { 'docker-engine':
     ensure => installed,
+    require => File['/etc/yum.repos.d/docker.repo'],
   }
 
   service { 'docker':
     ensure => running,
     enable => true,
-    require => Package['docker'],
+    require => Package['docker-engine'],
   }
 
 }
