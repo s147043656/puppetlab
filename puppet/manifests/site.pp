@@ -7,7 +7,7 @@ Package {
 
 node 'c7i11.vtdomain' {
   file { '/tmp/hello':
-    content => "Hello c7i11!\n",
+    content => "Hello c7i11!\nRow 2\n",
   }
   include base
   include nginx
