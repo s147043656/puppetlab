@@ -20,3 +20,11 @@ node 'c7i12.vtdomain' {
   include base
   include mysql
 }
+
+node 'c7i13.vtdomain' {
+  filr { '/tmp/hello':
+    content => "Hello c7i13!\n",
+  }
+  include base
+  include docker
+}
