@@ -22,7 +22,7 @@ node 'c7i12.vtdomain' {
 }
 
 node 'c7i13.vtdomain' {
-  filr { '/tmp/hello':
+  file { '/tmp/hello':
     content => "Hello c7i13!\n",
   }
   include base
