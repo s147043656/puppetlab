@@ -7,6 +7,8 @@
 # Bind the various services
 # These should be updated on every container start
 
+CASSANDRA_HOME=/opt/cassandra
+
 if [ -z ${IP} ]; then
   IP=`hostname --ip-address`
 fi
