@@ -84,6 +84,4 @@ setup_node() {
 [ ! -f "$CASSANDRA_HOME/conf/tweaked_configs" ] && setup_node
 
 #exec gosu cassandra "$CASSANDRA_HOME/bin/dse" cassandra -f "$@"
-exec date
-
-
+exec /bin/bash
