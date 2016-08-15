@@ -83,5 +83,5 @@ setup_node() {
 # if marker file doesn't exist, setup node
 [ ! -f "$CASSANDRA_HOME/conf/tweaked_configs" ] && setup_node
 
-#exec gosu cassandra "$CASSANDRA_HOME/bin/dse" cassandra -f "$@"
+#exec gosu cassandra "$CASSANDRA_HOME/bin/cassandra" cassandra -f "$@"
 exec /bin/bash
