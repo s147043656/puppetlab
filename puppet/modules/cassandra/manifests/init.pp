@@ -9,7 +9,7 @@ class cassandra {
   }
 
   exec { 'Start cassandra cluster':
-    command => 'cd /home/master/git-puppetlab/puppet/modules/cassandra/files/scripts && /bin/bash start_docker_cluster.sh cassandra',
+    command => 'cd /home/master/git-develop/puppet/modules/cassandra/files/scripts && /bin/bash start_docker_cluster.sh cassandra',
     path => '/usr/bin',
     require => Exec['Build cassandra docker image'],
   }
