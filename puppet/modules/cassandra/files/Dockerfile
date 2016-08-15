@@ -15,10 +15,6 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     ntp bash tree && \
     rm -rf /var/lib/apt/lists/*
 
-# grab gosu for easy step-down from root
-RUN curl -o /bin/gosu -SkL "https://github.com/tianon/gosu/releases/download/1.4/gosu-$(dpkg --print-architecture)" \
-    && chmod +x /bin/gosu
-
 ADD apache-cassandra-bin.tar.gz /opt
 
 ENV CASSANDRA_HOME /opt/cassandra
@@ -33,11 +29,6 @@ VOLUME /logs
 
 VOLUME /opt/cassandra
 
-# create a dedicated user for running DSE node
-RUN groupadd -g 1337 cassandra && \
-    useradd -u 1337 -g cassandra -s /bin/bash -d $CASSANDRA_HOME cassandra && \
-    chown -R cassandra:cassandra /opt/cassandra*
-
 # starting node using custom entrypoint that configures paths, interfaces, etc.
 COPY scripts/cassandra-entrypoint /usr/local/bin/
 RUN chmod +x /usr/local/bin/cassandra-entrypoint
@@ -49,7 +40,7 @@ COPY scripts/cassandra-cmd-launcher /usr/local/bin/
 RUN chmod +x /usr/local/bin/cassandra-cmd-launcher
 
 # link dse commands to the launcher
-RUN for cmd in cqlsh dsetool nodetool dse cassandra-stress; do \
+RUN for cmd in cqlsh nodetool cassandra-stress; do \
         ln -sf /usr/local/bin/cassandra-cmd-launcher /usr/local/bin/$cmd ; \
     done
 

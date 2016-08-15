@@ -7,5 +7,5 @@ full_cmd_path=$(find -L "$CASSANDRA_HOME/bin" "$CASSANDRA_HOME" -type f -name $c
 
 export CQLSH_HOST="$(hostname --ip-address)"
 
-exec gosu cassandra "$full_cmd_path" "$@"
+exec "$full_cmd_path" "$@"
 
