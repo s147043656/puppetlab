@@ -2,10 +2,6 @@
 
 class cassandra {
 
-  package { 'docker-engine':
-    ensure => installed,
-  }
-
   exec { 'Build cassandra docker image':
     command => "cd /home/master/git-puppetlab/puppet/modules/cassandra/files && /bin/bash build_images.sh",
     require => Package['docker-engine'],
