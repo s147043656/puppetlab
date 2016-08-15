@@ -43,7 +43,7 @@ echo "### Cron for root:"
 checkCron=`crontab -l -u root | grep -e "^\*.*papply\.sh$"`
 if [ "${checkCron}" == "" ];
   then
-    { crontab -l -u root; echo '*/3 * * * * /usr/local/bin/papply.sh'; } | crontab -u root -
+    { crontab -l -u root; echo '#*/3 * * * * /usr/local/bin/papply.sh'; } | crontab -u root -
   else
     echo "Papply cron job for root was already added."
 fi
