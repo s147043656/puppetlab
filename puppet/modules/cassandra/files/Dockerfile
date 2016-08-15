@@ -11,6 +11,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     python \
     python-support \
     sysstat \
+    mc \
     ntp bash tree && \
     rm -rf /var/lib/apt/lists/*
 
