@@ -8,11 +8,6 @@ if [ -z "$NUM_NODES" ]; then
   exit 1
 fi
 
-echo "Stop opscenter (if available)"
-docker stop opscenter > /dev/null 2>&1 
-echo "Remove opscenter (if available)"
-docker rm opscenter > /dev/null 2>&1
-
 let n=1
 let NUM_NODES=NUM_NODES+1
 

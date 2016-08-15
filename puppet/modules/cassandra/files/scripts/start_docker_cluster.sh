@@ -9,9 +9,8 @@ NUM_NODES=$2
 NODE_OPTS=$3
 
 if [ -z "$CASSANDRA_IMAGE" ]; then
-  echo "usage: start_docker_cluster.sh CassandraImageName [OPSCImageName] [NumberOfNodes] [NodeOptions]"
+  echo "usage: start_docker_cluster.sh CassandraImageName [NumberOfNodes] [NodeOptions]"
   echo "  CassandraImageName   mandatory nam of docker image"
-  echo "  OPSCImageName use and empty string "" or none if you have no OpsCenter image"
   echo "  NumberOfNodes how many nodes to start (default 3)"
   echo "  NodeOptions   additional options for the node (like -s or -g)"
   exit 1

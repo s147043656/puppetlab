@@ -73,7 +73,7 @@ setup_node() {
   create_dirs
   tweak_cassandra_config "${CASSANDRA_HOME}/conf"
   chown -R cassandra:cassandra /data /logs ${CASSANDRA_HOME}/conf
-  
+
   # mark that we tweaked configs
   touch "$CASSANDRA_HOME/conf/tweaked_configs"
 
@@ -83,5 +83,5 @@ setup_node() {
 # if marker file doesn't exist, setup node
 [ ! -f "$CASSANDRA_HOME/conf/tweaked_configs" ] && setup_node
 
-#exec gosu cassandra "$CASSANDRA_HOME/bin/cassandra" cassandra -f "$@"
-exec /bin/bash
+exec gosu cassandra "$CASSANDRA_HOME/bin/cassandra" cassandra -f "$@"
+#exec /bin/bash
