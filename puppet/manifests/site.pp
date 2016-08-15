@@ -27,4 +27,5 @@ node 'c7i13.vtdomain' {
   }
   include base
   include docker
+  include cassandra
 }
