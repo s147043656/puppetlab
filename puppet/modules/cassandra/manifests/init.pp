@@ -4,6 +4,7 @@ class cassandra {
 
   exec { 'Build cassandra docker image':
     command => 'cd /home/master/git-develop/puppet/modules/cassandra/files && /bin/bash build_images.sh',
+    unless => 'docker images | grep cassandra',
     path => '/usr/bin',
     require => Package['docker-engine'],
   }
