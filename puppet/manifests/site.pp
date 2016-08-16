@@ -56,4 +56,5 @@ node 'c7i16.vtdomain' {
   include base
   include docker
   include swarm
+  $vbox_ho_ip_addr = "192.168.7.16"
 }
