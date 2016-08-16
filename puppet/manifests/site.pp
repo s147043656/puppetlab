@@ -69,8 +69,8 @@ node 'c7i16.vtdomain' {
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.16',
     notify => Service['network'],
+  }
   include base
   include docker
   include swarm
-  }
 }
