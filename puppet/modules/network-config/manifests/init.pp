@@ -7,4 +7,10 @@ class network-config {
       content => template('network-config/eth.erb'),
     }
   }
+
+  set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.16',
+  }
+
 }
