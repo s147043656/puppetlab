@@ -52,7 +52,13 @@ node 'c7i16.vtdomain' {
   file { '/tmp/hello':
     content => "Hello c7i16!\n",
   }
+  include network-config
   include base
   include docker
   include swarm
+
+  set_ip_addr { 'epn0s8':
+    ip_address => '192.168.7.16',
+  }
+
 }
