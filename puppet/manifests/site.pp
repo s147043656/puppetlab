@@ -57,7 +57,8 @@ node 'c7i16.vtdomain' {
   include docker
   include swarm
 
-  set_ip_addr { 'epn0s8':
+  set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8'
     ip_address => '192.168.7.16',
   }
 
