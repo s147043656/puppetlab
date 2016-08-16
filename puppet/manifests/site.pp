@@ -29,3 +29,30 @@ node 'c7i13.vtdomain' {
   include docker
   include cassandra
 }
+
+node 'c7i14.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello c7i14!\n",
+  }
+  include base
+  include docker
+  include swarm
+}
+
+node 'c7i15.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello c7i15!\n",
+  }
+  include base
+  include docker
+  include swarm
+}
+
+node 'c7i16.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello c7i16!\n",
+  }
+  include base
+  include docker
+  include swarm
+}
