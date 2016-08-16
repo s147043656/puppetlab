@@ -2,9 +2,9 @@
 
 class network-config {
 
-  service {'network':
-    ensure => 'running',
-  }
+#  service {'network':
+#    ensure => 'running',
+#  }
 
   define set_ip_addr ( $iface_name, $ip_addr ) {
     file { "/etc/sysconfig/network-scripts/ifcfg-${iface_name}":
