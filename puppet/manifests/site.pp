@@ -35,15 +35,14 @@ node 'c7i14.vtdomain' {
     content => "Hello c7i14!\n",
   }
   include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.14',
+    notify => Service['network'],
+  }
   include base
   include docker
   include swarm
-  network-config::set_ip_addr { 'Configure host only adapter':
-    iface_name => 'enp0s8',
-    ip_addr => '192.168.7.16',
-    notify => Service['network'],
-  }
-
 }
 
 node 'c7i15.vtdomain' {
@@ -51,15 +50,14 @@ node 'c7i15.vtdomain' {
     content => "Hello c7i15!\n",
   }
   include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.15',
+    notify => Service['network'],
+  }
   include base
   include docker
   include swarm
-  network-config::set_ip_addr { 'Configure host only adapter':
-    iface_name => 'enp0s8',
-    ip_addr => '192.168.7.16',
-    notify => Service['network'],
-  }
-
 }
 
 node 'c7i16.vtdomain' {
@@ -67,13 +65,12 @@ node 'c7i16.vtdomain' {
     content => "Hello c7i16!\n",
   }
   include network-config
-  include base
-  include docker
-  include swarm
   network-config::set_ip_addr { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.16',
     notify => Service['network'],
+  include base
+  include docker
+  include swarm
   }
-
 }
