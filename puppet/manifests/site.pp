@@ -42,7 +42,6 @@ node 'c7i14.vtdomain' {
   }
   include base
   include docker
-  include swarm
 }
 
 node 'c7i15.vtdomain' {
@@ -57,7 +56,6 @@ node 'c7i15.vtdomain' {
   }
   include base
   include docker
-  include swarm
 }
 
 node 'c7i16.vtdomain' {
@@ -72,5 +70,4 @@ node 'c7i16.vtdomain' {
   }
   include base
   include docker
-  include swarm
 }
