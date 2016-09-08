@@ -5,7 +5,8 @@ class base {
               'vim-enhanced',
               'mc', 'wget',
               'telnet',
-              'bind-utils' 
+              'bind-utils',
+              'lynx'
             ]:
     ensure => installed,
   }
