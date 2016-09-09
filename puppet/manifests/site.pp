@@ -71,3 +71,63 @@ node 'c7i16.vtdomain' {
   include base
   include docker
 }
+
+node 'c7i17.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello c7i17!\n",
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.17',
+    notify => Service['network'],
+  }
+  include base
+  include docker
+  include cubernete
+}
+
+node 'c7i18.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello c7i18!\n",
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.18',
+    notify => Service['network'],
+  }
+  include base
+  include docker
+  include cubernete
+}
+
+node 'c7i19.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello c7i19!\n",
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.19',
+    notify => Service['network'],
+  }
+  include base
+  include docker
+  include cubernete
+}
+
+node 'c7i20.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello c7i20!\n",
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.20',
+    notify => Service['network'],
+  }
+  include base
+  include docker
+  include cubernete
+}
