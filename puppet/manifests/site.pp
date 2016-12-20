@@ -132,9 +132,9 @@ node 'c7i20.vtdomain' {
   include cubernete
 }
 
-node 'deherwsvlap566.wsint.biz' {
+node 'scloud566.vtdomain' {
   file { '/tmp/hello':
-    content => "Hello deherwsvlap566.wsint.biz\n",
+    content => "Hello scloud566.vtdomain\n",
   }
   include network-config
   network-config::set_ip_addr { 'Configure host only adapter':
@@ -145,9 +145,9 @@ node 'deherwsvlap566.wsint.biz' {
   include base
 }
 
-node 'deherwsvlap567.wsint.biz' {
+node 'scloud567.vtdomain' {
   file { '/tmp/hello':
-    content => "Hello deherwsvlap567.wsint.biz\n",
+    content => "Hello scloud567.vtdomain\n",
   }
   include network-config
   network-config::set_ip_addr { 'Configure host only adapter':
@@ -158,9 +158,9 @@ node 'deherwsvlap567.wsint.biz' {
   include base
 }
 
-node 'deherwsvlap568.wsint.biz' {
+node 'scloud568.vtdomain' {
   file { '/tmp/hello':
-    content => "Hello deherwsvlap568.wsint.biz\n",
+    content => "Hello scloud568.vtdomain\n",
   }
   include network-config
   network-config::set_ip_addr { 'Configure host only adapter':
