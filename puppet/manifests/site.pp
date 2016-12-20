@@ -131,3 +131,42 @@ node 'c7i20.vtdomain' {
   include docker
   include cubernete
 }
+
+node 'deherwsvlap566.wsint.biz' {
+  file { '/tmp/hello':
+    content => "Hello deherwsvlap566.wsint.biz\n",
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.21',
+    notify => Service['network'],
+  }
+  include base
+}
+
+node 'deherwsvlap567.wsint.biz' {
+  file { '/tmp/hello':
+    content => "Hello deherwsvlap567.wsint.biz\n",
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.22',
+    notify => Service['network'],
+  }
+  include base
+}
+
+node 'deherwsvlap568.wsint.biz' {
+  file { '/tmp/hello':
+    content => "Hello deherwsvlap568.wsint.biz\n",
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.23',
+    notify => Service['network'],
+  }
+  include base
+}
