@@ -136,6 +136,10 @@ node 'scloud566.vtdomain' {
   file { '/tmp/hello':
     content => "Hello scloud566.vtdomain\n",
   }
+  service { 'firewalld':
+    ensure => stopped,
+    enable => false,
+  }
   include network-config
   network-config::set_ip_addr { 'Configure host only adapter':
     iface_name => 'enp0s8',
