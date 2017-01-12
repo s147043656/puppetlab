@@ -182,3 +182,54 @@ node 'scloud568.vtdomain' {
   }
   include base
 }
+
+node 'scloud231.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello scloud231.vtdomain\n",
+  }
+  service { 'firewalld':
+    ensure => stopped,
+    enable => false,
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.31',
+    notify => Service['network'],
+  }
+  include base
+}
+
+node 'scloud232.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello scloud232.vtdomain\n",
+  }
+  service { 'firewalld':
+    ensure => stopped,
+    enable => false,
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.32',
+    notify => Service['network'],
+  }
+  include base
+}
+
+node 'scloud233.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello scloud233.vtdomain\n",
+  }
+  service { 'firewalld':
+    ensure => stopped,
+    enable => false,
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.33',
+    notify => Service['network'],
+  }
+  include base
+}
