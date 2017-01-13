@@ -183,9 +183,9 @@ node 'scloud568.vtdomain' {
   include base
 }
 
-node 'scloud231.vtdomain' {
+node 'scloud245.vtdomain' {
   file { '/tmp/hello':
-    content => "Hello scloud231.vtdomain\n",
+    content => "Hello scloud245.vtdomain\n",
   }
   service { 'firewalld':
     ensure => stopped,
@@ -200,9 +200,9 @@ node 'scloud231.vtdomain' {
   include base
 }
 
-node 'scloud232.vtdomain' {
+node 'scloud246.vtdomain' {
   file { '/tmp/hello':
-    content => "Hello scloud232.vtdomain\n",
+    content => "Hello scloud246.vtdomain\n",
   }
   service { 'firewalld':
     ensure => stopped,
@@ -217,9 +217,9 @@ node 'scloud232.vtdomain' {
   include base
 }
 
-node 'scloud233.vtdomain' {
+node 'scloud247.vtdomain' {
   file { '/tmp/hello':
-    content => "Hello scloud233.vtdomain\n",
+    content => "Hello scloud247.vtdomain\n",
   }
   service { 'firewalld':
     ensure => stopped,
