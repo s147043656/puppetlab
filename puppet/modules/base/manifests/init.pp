@@ -6,7 +6,8 @@ class base {
               'mc', 'wget',
               'telnet',
               'bind-utils',
-              'lynx'
+              'lynx',
+              'ntpdate'
             ]:
     ensure => installed,
   }
