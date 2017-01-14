@@ -22,7 +22,6 @@ class base {
     command => '/sbin/ntpdate ntp.ubuntu.com',
     user => 'root',
     minute => '*/3',
-    require => Package['ntpdate'],
-    require => File['/etc/localtime'],
+    require => [ Package['ntpdate'], File['/etc/localtime'], ],
   }
 }
