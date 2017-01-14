@@ -14,10 +14,15 @@ class base {
   package { 'tcpdump':
     ensure => latest,
   }
+  file { 'localTimeZone':
+    ensure => link,
+    target => "/usr/share/zoneinfo/Europe/Kiev",
+  }
   cron { 'ntpdate-update':
     command => '/sbin/ntpdate ntp.ubuntu.com',
     user => 'root',
     minute => '*/3',
     require => Package['ntpdate'],
+    require => File['localTimeZone'],
   }
 }
