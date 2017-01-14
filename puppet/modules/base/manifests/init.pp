@@ -15,8 +15,8 @@ class base {
     ensure => latest,
   }
   cron { 'ntpdate-update':
-    command => '/sbin/ntpdate ntp.ubuntu.com'
-    user => 'root'
+    command => '/sbin/ntpdate ntp.ubuntu.com',
+    user => 'root',
     minute => '*/3',
     require => Package['ntpdate'],
   }
