@@ -96,8 +96,7 @@ node 'c7i17.vtdomain' {
     notify => Service['network'],
   }
   include base
-  include docker
-  include cubernete
+  include kubernetes
 }
 
 node 'c7i18.vtdomain' {
@@ -111,8 +110,7 @@ node 'c7i18.vtdomain' {
     notify => Service['network'],
   }
   include base
-  include docker
-  include cubernete
+  include kubernetes
 }
 
 node 'c7i19.vtdomain' {
@@ -126,8 +124,7 @@ node 'c7i19.vtdomain' {
     notify => Service['network'],
   }
   include base
-  include docker
-  include cubernete
+  include kubernetes
 }
 
 node 'c7i20.vtdomain' {
@@ -141,8 +138,7 @@ node 'c7i20.vtdomain' {
     notify => Service['network'],
   }
   include base
-  include docker
-  include cubernete
+  include kubernetes
 }
 
 node 'scloud566.vtdomain' {
