@@ -97,6 +97,13 @@ node 'c7i17.vtdomain' {
   }
   include base
   include kubernetes
+  package { 'docker-distribution':
+    ensure => installed,
+  }
+  service { 'docker-distribution':
+    ensure => running,
+    enable => true,
+  }
 }
 
 node 'c7i18.vtdomain' {
