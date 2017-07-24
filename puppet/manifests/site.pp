@@ -103,6 +103,7 @@ node 'c7i17.vtdomain' {
   service { 'docker-distribution':
     ensure => running,
     enable => true,
+    require => Package['docker-distribution'],
   }
 }
 

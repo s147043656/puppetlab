@@ -9,6 +9,7 @@ class kubernetes {
   service { 'docker':
     ensure => running,
     enable => true,
+    require => Package['docker'],
   }
 
   package { 'kubernets-client':
@@ -26,6 +27,7 @@ class kubernetes {
   service { 'etcd':
     ensure => running,
     enable => true,
+    require => Package['etcd'],
   }
 
   service { 'firewalld':
