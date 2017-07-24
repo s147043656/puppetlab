@@ -7,7 +7,7 @@ class kubernetes {
   }
 
   service { 'docker':
-    ensure => started,
+    ensure => running,
     enable => true,
   }
 
@@ -24,7 +24,7 @@ class kubernetes {
   }
 
   service { 'etcd':
-    ensure => started,
+    ensure => running,
     enable => true,
   }
 
