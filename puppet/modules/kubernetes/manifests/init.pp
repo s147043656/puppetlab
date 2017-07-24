@@ -6,6 +6,11 @@ class kubernetes {
     ensure => installed,
   }
 
+  service { 'docker':
+    ensure => started,
+    enable => true,
+  }
+
   package { 'kubernets-client':
     ensure => installed,
   }
@@ -16,6 +21,11 @@ class kubernetes {
 
   package { 'etcd':
     ensure => installed,
+  }
+
+  service { 'etcd':
+    ensure => started,
+    enable => true,
   }
 
   service { 'firewalld':
