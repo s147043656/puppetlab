@@ -9,7 +9,7 @@
     "containers": [
       {
         "name": "kube-apiserver",
-        "image": "rhel7/kubernetes-apiserver",
+        "image": "c7i17.vtdomain:5000/rhel7/kubernetes-apiserver:1.0.0",
         "command": [
           "/usr/bin/kube-apiserver",
           "--v=0",

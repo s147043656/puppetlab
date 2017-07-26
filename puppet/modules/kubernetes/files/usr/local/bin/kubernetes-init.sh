@@ -25,12 +25,16 @@ ss -tulnp | grep -E "(kube)|(etcd)"
 
 curl -s -L http://localhost:2379/version
 
+echo "Sleeping for 60 sec..."
 sleep 60
 kubectl create -f /etc/kubernetes/container-configs/springlab1-service.yaml
+echo "Sleeping for 10 sec..."
 sleep 10
 kubectl create -f /etc/kubernetes/container-configs/springlab1-rc.yaml
+echo "Sleeping for 10 sec..."
 sleep 10
 kubectl create -f /etc/kubernetes/container-configs/springlab2-service.yaml
+echo "Sleeping for 10 sec..."
 sleep 10
 kubectl create -f /etc/kubernetes/container-configs/springlab2-rc.yaml
 
