@@ -25,10 +25,10 @@ ss -tulnp | grep -E "(kube)|(etcd)"
 
 curl -s -L http://localhost:2379/version
 
-create -f /etc/kubernetes/container-configs/springlab1-service.yaml
-create -f /etc/kubernetes/container-configs/springlab1-rc.yaml
-create -f /etc/kubernetes/container-configs/springlab2-service.yaml
-create -f /etc/kubernetes/container-configs/springlab2-rc.yaml
+kubectl create -f /etc/kubernetes/container-configs/springlab1-service.yaml
+kubectl create -f /etc/kubernetes/container-configs/springlab1-rc.yaml
+kubectl create -f /etc/kubernetes/container-configs/springlab2-service.yaml
+kubectl create -f /etc/kubernetes/container-configs/springlab2-rc.yaml
 
 kubectl cluster-info
 kubectl get rc
