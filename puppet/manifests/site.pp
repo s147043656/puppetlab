@@ -97,6 +97,9 @@ node 'c7i17.vtdomain' {
   }
   include base
   include kubernetes
+  package { 'java-1.8.0-openjdk':
+    ensure => installed,
+  }
   package { 'docker-distribution':
     ensure => installed,
   }
