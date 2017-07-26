@@ -24,4 +24,8 @@ class base {
     minute => '*/3',
     require => [ Package['ntpdate'], File['/etc/localtime'], ],
   }
+  file { '/data01':
+    ensure => directory,
+  }
+
 }
