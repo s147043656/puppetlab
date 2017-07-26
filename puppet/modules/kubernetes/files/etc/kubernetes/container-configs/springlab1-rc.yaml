@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: "springlab1"
-        image: "c7i17.vtdomain:5000/vtapps/springlab:1.0.1"
+        image: "c7i17.vtdomain:5000/vtapps/springlab:1.0.0"
         ports:
         - containerPort: 8080
