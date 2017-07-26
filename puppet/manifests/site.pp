@@ -105,11 +105,17 @@ node 'c7i17.vtdomain' {
     enable => true,
     require => Package['docker-distribution'],
   }
+  file { '/etc/kubernetes':
+    ensure => directory,
+    source => "puppet:///modules/kubernetes/etc/kubernetes",
+    recurse => 'true',
+  }
   file { '/data01/containers':
     ensure => directory,
     source => "puppet:///modules/kubernetes/containers",
     recurse => 'true',
   }
+
 }
 
 node 'c7i18.vtdomain' {
