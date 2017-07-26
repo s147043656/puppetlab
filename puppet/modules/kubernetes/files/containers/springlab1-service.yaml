@@ -9,5 +9,5 @@ spec:
   ports:
   - port: 8080
   selector:
-    app: apringlab1
+    app: springlab1
 
