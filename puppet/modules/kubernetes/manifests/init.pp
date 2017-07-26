@@ -12,7 +12,7 @@ class kubernetes {
     require => Package['docker'],
   }
 
-  package { 'kubernets-client':
+  package { 'kubernetes-client':
     ensure => installed,
   }
 
