@@ -108,6 +108,7 @@ node 'c7i17.vtdomain' {
   file { '/data01/containers':
     ensure => directory,
     source => "puppet:///modules/kubernetes/containers",
+    recurse => 'true',
   }
 }
 
