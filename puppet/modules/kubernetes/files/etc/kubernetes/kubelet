@@ -1,0 +1,5 @@
+KUBELET_ADDRESS="--address=127.0.0.1"
+KUBELET_HOSTNAME="--hostname-override=127.0.0.1"
+KUBELET_ARGS="--register-node=true --config=/etc/kubernetes/manifests --register-schedulable=true"
+KUBELET_API_SERVER="--api-servers=http://127.0.0.1:8080"
+KUBELET_POD_INFRA_CONTAINER="--pod-infra-container-image=c7i17.vtdomain:5000/rhel7/pod-infrastructure:1.0.0"
