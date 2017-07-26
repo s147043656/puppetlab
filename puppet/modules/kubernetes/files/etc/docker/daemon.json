@@ -1,0 +1,4 @@
+{
+    "insecure-registries": ["c7i17.vtdomain:5000", "registry.access.redhat.com"],
+    "dns": ["8.8.8.8", "10.25.0.2"]
+}
