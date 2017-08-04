@@ -5,6 +5,22 @@ Package {
   allow_virtual => true,
 }
 
+
+### Bare instances
+
+node 'c7i1.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello c7i2!\n",
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.1',
+    notify => Service['network'],
+  }
+  include base
+}
+
 node 'c7i2.vtdomain' {
   file { '/tmp/hello':
     content => "Hello c7i2!\n",
@@ -17,6 +33,22 @@ node 'c7i2.vtdomain' {
   }
   include base
 }
+
+node 'c7i3.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello c7i2!\n",
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.3',
+    notify => Service['network'],
+  }
+  include base
+}
+
+
+### WEB and DB LAB instances
 
 node 'c7i11.vtdomain' {
   file { '/tmp/hello':
@@ -42,6 +74,9 @@ node 'c7i13.vtdomain' {
   include docker
   include cassandra
 }
+
+
+### Docker LAB instances
 
 node 'c7i14.vtdomain' {
   file { '/tmp/hello':
@@ -84,6 +119,9 @@ node 'c7i16.vtdomain' {
   include base
   include docker
 }
+
+
+### Kubernetes LAB instances
 
 node 'c7i17.vtdomain' {
   file { '/tmp/hello':
@@ -161,6 +199,9 @@ node 'c7i20.vtdomain' {
   include base
   include kubernetes
 }
+
+
+### Solr Cloud LAB instances
 
 node 'scloud566.vtdomain' {
   file { '/tmp/hello':
