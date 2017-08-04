@@ -10,7 +10,7 @@ Package {
 
 node 'c7i1.vtdomain' {
   file { '/tmp/hello':
-    content => "Hello c7i2!\n",
+    content => "Hello c7i1!\n",
   }
   include network-config
   network-config::set_ip_addr { 'Configure host only adapter':
@@ -36,7 +36,33 @@ node 'c7i2.vtdomain' {
 
 node 'c7i3.vtdomain' {
   file { '/tmp/hello':
-    content => "Hello c7i2!\n",
+    content => "Hello c7i3!\n",
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.3',
+    notify => Service['network'],
+  }
+  include base
+}
+
+node 'c7i4.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello c7i4!\n",
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.4',
+    notify => Service['network'],
+  }
+  include base
+}
+
+node 'c7i5.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello c7i5!\n",
   }
   include network-config
   network-config::set_ip_addr { 'Configure host only adapter':
