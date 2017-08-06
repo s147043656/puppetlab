@@ -16,6 +16,12 @@ class network-config {
     file { "/etc/network/interfaces":
       content => template('network-config/eth-deb.erb'),
     }
+    exec { 'Flush':
+    command => "ip addr flush $iface_name",
+    path => '/bin',
+    require => File['/etc/network/interfaces'],
+  }
+
   }
 
 #  set_ip_addr { 'Configure host only adapter':
