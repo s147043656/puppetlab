@@ -1,4 +1,4 @@
-userName=master
+userName=ugit
 gitUrl="git@github.com:s147043656/puppetlab.git"
 branchName=develop
 gitDir=/home/${userName}/git-${branchName}
