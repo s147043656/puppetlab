@@ -1,6 +1,6 @@
 # Manage standard set of packages
 
-class base {
+class base-rh {
   package { [ 'mailx',
               'vim-enhanced',
               'mc', 'wget',

@@ -1,6 +1,6 @@
 # Manage standard set of packages
 
-class base {
+class base-deb {
   package { [ 'openssh-server',
               'mc',
               'ntpdate'
