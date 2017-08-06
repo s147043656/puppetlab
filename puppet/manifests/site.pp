@@ -5,6 +5,22 @@ Package {
   allow_virtual => true,
 }
 
+##### Ubuntu hosts
+
+### Bare instances
+
+node 'u16i101.vtdomain' {
+  file { '/tmp/hello':
+    content => "Hello u16i101!\n",
+  }
+  include network-config
+  network-config::set_ip_addr { 'Configure host only adapter':
+    iface_name => 'enp0s8',
+    ip_addr => '192.168.7.101',
+    notify => Service['network'],
+  }
+  include base
+}
 
 ##### Centos hosts
 
@@ -334,19 +350,3 @@ node 'scloud247.vtdomain' {
 }
 
 
-##### Ubuntu hosts
-
-### Bare instances
-
-node 'u16i101.vtdomain' {
-  file { '/tmp/hello':
-    content => "Hello u16i101!\n",
-  }
-  include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
-    iface_name => 'enp0s8',
-    ip_addr => '192.168.7.101',
-    notify => Service['network'],
-  }
-  include base
-}
