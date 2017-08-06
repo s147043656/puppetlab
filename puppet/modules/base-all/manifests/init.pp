@@ -1,6 +1,6 @@
 # Manage standard set of packages
 
-class base {
+class base-all {
   package { [ 'mc', 
               'ntpdate'
             ]:
