@@ -9,10 +9,10 @@ if [ $# -lt 1 ];
 fi
 
 if [ -f /etc/redhat-release ]; then
-  if [ `head -1 /etc/issue | awk '{print $1}'` == "RedHat" ]; then
+  if [ `head -1 /etc/redhat-release | awk '{print $1}'` == "RedHat" ]; then
     distrType=RedHat
   elif
-    [ `head -1 /etc/issue | awk '{print $1}'` == "CentOS" ]; then
+    [ `head -1 /etc/redhat-release | awk '{print $1}'` == "CentOS" ]; then
       distrType=CentOS
   fi
 elif
@@ -21,7 +21,7 @@ elif
 fi
 
 case $distrType in
-  RedHat|Centos|Debian|Ubuntu)
+  RedHat|CentOS|Debian|Ubuntu)
     echo "Starting bootstrap for $distrType"
     ;;
   *)
@@ -51,7 +51,7 @@ echo "### Done."
 
 echo "### Installing pupper-server:"
   case $distrType in
-    RedHat|Centos)
+    RedHat|CentOS)
       yum install -y puppet-server
       ;;
     Debian|Ubuntu)
