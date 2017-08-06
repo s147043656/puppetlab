@@ -20,6 +20,7 @@ class network-config {
     command => "ip addr flush $iface_name",
     path => '/bin',
     require => File['/etc/network/interfaces'],
+    }
   }
 
   }
