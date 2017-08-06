@@ -8,7 +8,7 @@ class base-all {
   }
   file { '/etc':
     ensure => directory,
-    source => "puppet:///modules/base/etc",
+    source => "puppet:///modules/base-all/etc",
     recurse => 'true',
   }
   file { '/etc/localtime':
