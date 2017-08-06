@@ -19,7 +19,7 @@ node 'u16i101' {
     ip_addr => '192.168.7.101',
     notify => Service['network'],
   }
-  include base
+  include base-deb
 }
 
 ##### Centos hosts
@@ -36,7 +36,7 @@ node 'c7i1' {
     ip_addr => '192.168.7.1',
     notify => Service['network'],
   }
-  include base
+  include base-rh
 }
 
 node 'c7i2.vtdomain' {
@@ -49,7 +49,7 @@ node 'c7i2.vtdomain' {
     ip_addr => '192.168.7.2',
     notify => Service['network'],
   }
-  include base
+  include base-rh
 }
 
 node 'c7i3.vtdomain' {
@@ -62,7 +62,7 @@ node 'c7i3.vtdomain' {
     ip_addr => '192.168.7.3',
     notify => Service['network'],
   }
-  include base
+  include base-rh
 }
 
 node 'c7i4.vtdomain' {
@@ -75,7 +75,7 @@ node 'c7i4.vtdomain' {
     ip_addr => '192.168.7.4',
     notify => Service['network'],
   }
-  include base
+  include base-rh
 }
 
 node 'c7i5.vtdomain' {
@@ -88,7 +88,7 @@ node 'c7i5.vtdomain' {
     ip_addr => '192.168.7.3',
     notify => Service['network'],
   }
-  include base
+  include base-rh
 }
 
 
@@ -98,7 +98,7 @@ node 'c7i11.vtdomain' {
   file { '/tmp/hello':
     content => "Hello c7i11!\nRow 2\n",
   }
-  include base
+  include base-rh
   include nginx
 }
 
@@ -106,7 +106,7 @@ node 'c7i12.vtdomain' {
   file { '/tmp/hello':
     content => "Hello c7i12!\n",
   }
-  include base
+  include base-rh
   include mysql
 }
 
@@ -114,7 +114,7 @@ node 'c7i13.vtdomain' {
   file { '/tmp/hello':
     content => "Hello c7i13!\n",
   }
-  include base
+  include base-rh
   include docker
   include cassandra
 }
@@ -132,7 +132,7 @@ node 'c7i14.vtdomain' {
     ip_addr => '192.168.7.14',
     notify => Service['network'],
   }
-  include base
+  include base-rh
   include docker
 }
 
@@ -146,7 +146,7 @@ node 'c7i15.vtdomain' {
     ip_addr => '192.168.7.15',
     notify => Service['network'],
   }
-  include base
+  include base-rh
   include docker
 }
 
@@ -160,7 +160,7 @@ node 'c7i16.vtdomain' {
     ip_addr => '192.168.7.16',
     notify => Service['network'],
   }
-  include base
+  include base-rh
   include docker
 }
 
@@ -177,7 +177,7 @@ node 'c7i17.vtdomain' {
     ip_addr => '192.168.7.17',
     notify => Service['network'],
   }
-  include base
+  include base-rh
   include kubernetes
   package { 'java-1.8.0-openjdk':
     ensure => installed,
@@ -212,7 +212,7 @@ node 'c7i18.vtdomain' {
     ip_addr => '192.168.7.18',
     notify => Service['network'],
   }
-  include base
+  include base-rh
   include kubernetes
 }
 
@@ -226,7 +226,7 @@ node 'c7i19.vtdomain' {
     ip_addr => '192.168.7.19',
     notify => Service['network'],
   }
-  include base
+  include base-rh
   include kubernetes
 }
 
@@ -240,7 +240,7 @@ node 'c7i20.vtdomain' {
     ip_addr => '192.168.7.20',
     notify => Service['network'],
   }
-  include base
+  include base-rh
   include kubernetes
 }
 
@@ -261,7 +261,7 @@ node 'scloud566.vtdomain' {
     ip_addr => '192.168.7.21',
     notify => Service['network'],
   }
-  include base
+  include base-rh
 }
 
 node 'scloud567.vtdomain' {
@@ -278,7 +278,7 @@ node 'scloud567.vtdomain' {
     ip_addr => '192.168.7.22',
     notify => Service['network'],
   }
-  include base
+  include base-rh
 }
 
 node 'scloud568.vtdomain' {
@@ -295,7 +295,7 @@ node 'scloud568.vtdomain' {
     ip_addr => '192.168.7.23',
     notify => Service['network'],
   }
-  include base
+  include base-rh
 }
 
 node 'scloud245.vtdomain' {
@@ -312,7 +312,7 @@ node 'scloud245.vtdomain' {
     ip_addr => '192.168.7.31',
     notify => Service['network'],
   }
-  include base
+  include base-rh
 }
 
 node 'scloud246.vtdomain' {
@@ -329,7 +329,7 @@ node 'scloud246.vtdomain' {
     ip_addr => '192.168.7.32',
     notify => Service['network'],
   }
-  include base
+  include base-rh
 }
 
 node 'scloud247.vtdomain' {
@@ -346,7 +346,7 @@ node 'scloud247.vtdomain' {
     ip_addr => '192.168.7.33',
     notify => Service['network'],
   }
-  include base
+  include base-rh
 }
 
 
