@@ -1,28 +1,8 @@
-# Manage standard set of packages
+# Manage standard set of packages for Deb based
 
 class base-deb {
-  package { [ 'openssh-server',
-              'mc',
-              'ntpdate'
+  package { [ 'openssh-server'
             ]:
     ensure => installed,
   }
-  package { 'tcpdump':
-    ensure => latest,
-  }
-  file { '/etc':
-    ensure => directory,
-    source => "puppet:///modules/base/etc",
-    recurse => 'true',
-  }
-  cron { 'ntpdate-update':
-    command => '/sbin/ntpdate ntp.ubuntu.com',
-    user => 'root',
-    minute => '*/3',
-    require => [ Package['ntpdate'], File['/etc/localtime'], ],
-  }
-  file { '/data01':
-    ensure => directory,
-  }
-
 }
