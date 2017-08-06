@@ -9,12 +9,12 @@ Package {
 
 ### Bare instances
 
-node 'u16i101.vtdomain' {
+node 'u16i101' {
   file { '/tmp/hello':
     content => "Hello u16i101!\n",
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_deb { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.101',
     notify => Service['network'],
@@ -26,12 +26,12 @@ node 'u16i101.vtdomain' {
 
 ### Bare instances
 
-node 'c7i1.vtdomain' {
+node 'c7i1' {
   file { '/tmp/hello':
     content => "Hello c7i1!\n",
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.1',
     notify => Service['network'],
@@ -44,7 +44,7 @@ node 'c7i2.vtdomain' {
     content => "Hello c7i2!\n",
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.2',
     notify => Service['network'],
@@ -57,7 +57,7 @@ node 'c7i3.vtdomain' {
     content => "Hello c7i3!\n",
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.3',
     notify => Service['network'],
@@ -70,7 +70,7 @@ node 'c7i4.vtdomain' {
     content => "Hello c7i4!\n",
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.4',
     notify => Service['network'],
@@ -83,7 +83,7 @@ node 'c7i5.vtdomain' {
     content => "Hello c7i5!\n",
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.3',
     notify => Service['network'],
@@ -127,7 +127,7 @@ node 'c7i14.vtdomain' {
     content => "Hello c7i14!\n",
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.14',
     notify => Service['network'],
@@ -141,7 +141,7 @@ node 'c7i15.vtdomain' {
     content => "Hello c7i15!\n",
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.15',
     notify => Service['network'],
@@ -155,7 +155,7 @@ node 'c7i16.vtdomain' {
     content => "Hello c7i16!\n",
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.16',
     notify => Service['network'],
@@ -172,7 +172,7 @@ node 'c7i17.vtdomain' {
     content => "Hello c7i17!\n",
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.17',
     notify => Service['network'],
@@ -207,7 +207,7 @@ node 'c7i18.vtdomain' {
     content => "Hello c7i18!\n",
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.18',
     notify => Service['network'],
@@ -221,7 +221,7 @@ node 'c7i19.vtdomain' {
     content => "Hello c7i19!\n",
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.19',
     notify => Service['network'],
@@ -235,7 +235,7 @@ node 'c7i20.vtdomain' {
     content => "Hello c7i20!\n",
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.20',
     notify => Service['network'],
@@ -256,7 +256,7 @@ node 'scloud566.vtdomain' {
     enable => false,
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.21',
     notify => Service['network'],
@@ -273,7 +273,7 @@ node 'scloud567.vtdomain' {
     enable => false,
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.22',
     notify => Service['network'],
@@ -290,7 +290,7 @@ node 'scloud568.vtdomain' {
     enable => false,
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.23',
     notify => Service['network'],
@@ -307,7 +307,7 @@ node 'scloud245.vtdomain' {
     enable => false,
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.31',
     notify => Service['network'],
@@ -324,7 +324,7 @@ node 'scloud246.vtdomain' {
     enable => false,
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.32',
     notify => Service['network'],
@@ -341,7 +341,7 @@ node 'scloud247.vtdomain' {
     enable => false,
   }
   include network-config
-  network-config::set_ip_addr { 'Configure host only adapter':
+  network-config::set_ip_addr_rh { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.33',
     notify => Service['network'],
