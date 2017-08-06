@@ -338,9 +338,9 @@ node 'scloud247.vtdomain' {
 
 ### Bare instances
 
-node 'u16i1.vtdomain' {
+node 'u16i101.vtdomain' {
   file { '/tmp/hello':
-    content => "Hello c7i1!\n",
+    content => "Hello u16i101!\n",
   }
   include network-config
   network-config::set_ip_addr { 'Configure host only adapter':
