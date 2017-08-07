@@ -6,10 +6,16 @@ class base-all {
             ]:
     ensure => installed,
   }
-  file { '/etc':
-    ensure => directory,
-    source => "puppet:///modules/base-all/etc",
-    recurse => 'true',
+#  file { '/etc':
+#    ensure => directory,
+#    source => "puppet:///modules/base-all/etc",
+#    recurse => 'true',
+#  }
+  file { '/ets/hosts':
+    source => 'puppet:///modules/base-all/etc/hosts',
+  }
+  file { '/ets/resolv.conf':
+    source => 'puppet:///modules/base-all/etc/resolv.conf',
   }
   file { '/etc/localtime':
     ensure => link,
