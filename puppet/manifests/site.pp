@@ -17,10 +17,11 @@ node 'u16i101' {
   network-config::set_ip_addr_deb { 'Configure host only adapter':
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.101',
-#    notify => Service['networking'],
+    notify => Exec["Service Networking Restart"],
   }
-  exec { 'Networking service restart':
-    command  => "/usr/sbin/service networking restart",
+  exec { 'Service Networking Restart':
+    command  => "/bin/systemctl restart networking.service",
+    refreshonly => true,
   }
   include base-all
   include base-deb
