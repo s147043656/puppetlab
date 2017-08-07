@@ -18,10 +18,11 @@ node 'u16i101' {
     iface_name => 'enp0s8',
     ip_addr => '192.168.7.101',
 #    notify => Service['networking'],
-    exec { 'Networking service restart':
-      command  => "/use/sbin/service networking restart",
-    }
   }
+  exec { 'Networking service restart':
+    command  => "/use/sbin/service networking restart",
+  }
+
   include base-all
   include base-deb
 }
