@@ -20,7 +20,7 @@ node 'u16i101' {
 #    notify => Service['networking'],
   }
   exec { 'Networking service restart':
-    command  => "/use/sbin/service networking restart",
+    command  => "/usr/sbin/service networking restart",
   }
 
   include base-all
