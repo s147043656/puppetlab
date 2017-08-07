@@ -22,7 +22,6 @@ node 'u16i101' {
   exec { 'Networking service restart':
     command  => "/usr/sbin/service networking restart",
   }
-
   include base-all
   include base-deb
 }
