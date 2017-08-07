@@ -18,6 +18,7 @@ class network-config {
   define set_ip_addr_deb ( $iface_name, $ip_addr ) {
     service {'networking':
       ensure => 'running',
+      provider => 'systemd',
     }
     file { "/etc/network/interfaces":
       content => template('network-config/eth-deb.erb'),
