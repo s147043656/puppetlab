@@ -5,4 +5,7 @@ class base-deb {
             ]:
     ensure => installed,
   }
+  file { '/run/resolvconf/resolv.conf':
+    source => 'puppet:///modules/base-all/etc/resolv.conf',
+  }
 }

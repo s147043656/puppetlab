@@ -11,11 +11,8 @@ class base-all {
 #    source => "puppet:///modules/base-all/etc",
 #    recurse => 'true',
 #  }
-  file { '/ets/hosts':
+  file { '/etc/hosts':
     source => 'puppet:///modules/base-all/etc/hosts',
-  }
-  file { '/ets/resolv.conf':
-    source => 'puppet:///modules/base-all/etc/resolv.conf',
   }
   file { '/etc/localtime':
     ensure => link,

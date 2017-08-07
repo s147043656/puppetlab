@@ -13,4 +13,7 @@ class base-rh {
   package { 'tcpdump':
     ensure => latest,
   }
+  file { '/etc/resolv.conf':
+    source => 'puppet:///modules/base-all/etc/resolv.conf',
+  }
 }
