@@ -31,7 +31,7 @@ node 'u16i102' {
   file { '/tmp/hello':
     content => "Hello u16i102!\n",
   }
-  host {
+  host { 'u16i102.vtdomain':
     name => "u16i102.vtdomain",
     ip => "192.168.7.102",
     ensure => present,
