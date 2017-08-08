@@ -11,8 +11,10 @@ class base-deb {
   file { '/run/resolvconf/resolv.conf':
     source => 'puppet:///modules/base-all/etc/resolv.conf',
   }
+  file { '/tmp/openstack-dev-prepare.sh':
+    source => 'puppet:///modules/base-deb/openstack-dev-prepare.sh',
+  }
   file { '/tmp/openstack-dev-setup.sh':
     source => 'puppet:///modules/base-deb/openstack-dev-setup.sh',
   }
-
 }
