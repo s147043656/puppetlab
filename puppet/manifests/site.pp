@@ -5,7 +5,7 @@ Package {
   allow_virtual => true,
 }
 
-include nodes-ubuntu1604.pp
+import nodes-ubuntu1604.pp
 
 ##### Ubuntu hosts
 
