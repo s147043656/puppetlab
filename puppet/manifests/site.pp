@@ -5,28 +5,28 @@ Package {
   allow_virtual => true,
 }
 
-import nodes-ubuntu1604.pp
+#import nodes-ubuntu1604.pp
 
 ##### Ubuntu hosts
 
 ### Bare instances
 
-node 'u16i101' {
-  file { '/tmp/hello':
-    content => "Hello u16i101!\n",
-  }
-  include network-config
-  network-config::set_ip_addr_deb { 'Configure host only adapter':
-    iface_name => 'enp0s8',
-    ip_addr => '192.168.7.101',
+#node 'u16i101' {
+#  file { '/tmp/hello':
+#    content => "Hello u16i101!\n",
+#  }
+#  include network-config
+#  network-config::set_ip_addr_deb { 'Configure host only adapter':
+#    iface_name => 'enp0s8',
+#    ip_addr => '192.168.7.101',
 #    notify => Exec["Service Networking Restart"],
   }
 #  exec { 'Service Networking Restart':
 #    command  => "/bin/systemctl restart networking.service",
 #    refreshonly => true,
 #  }
-  include base-all
-  include base-deb
+#  include base-all
+#  include base-deb
 }
 
 #node 'u16i102' {
