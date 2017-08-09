@@ -5,6 +5,8 @@ Package {
   allow_virtual => true,
 }
 
+include nodes-ubuntu1604.pp
+
 ##### Ubuntu hosts
 
 ### Bare instances
@@ -27,18 +29,18 @@ node 'u16i101' {
   include base-deb
 }
 
-node 'u16i102' {
-  file { '/tmp/hello':
-    content => "Hello u16i102!\n",
-  }
-  host { 'u16i102.vtdomain':
-    name => "u16i102.vtdomain",
-    ip => "192.168.7.102",
-    ensure => present,
-  }
-  include base-all
-  include base-deb
-}
+#node 'u16i102' {
+#  file { '/tmp/hello':
+#    content => "Hello u16i102!\n",
+#  }
+#  host { 'u16i102.vtdomain':
+#    name => "u16i102.vtdomain",
+#    ip => "192.168.7.102",
+#    ensure => present,
+#  }
+#  include base-all
+#  include base-deb
+#}
 
 ##### Centos hosts
 
