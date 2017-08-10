@@ -5,7 +5,7 @@ userHome=`eval echo ~${userName}`
 
 gitUrl="git@github.com:s147043656/puppetlab.git"
 branchName=master
-gitDir=${userHome}/git-${branchName}
+gitDir=${userHome}/git
 
 puppetExec=/opt/puppetlabs/bin/puppet
 puppetManifest=${gitDir}/puppet5/manifests/site.pp
