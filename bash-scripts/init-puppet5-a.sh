@@ -50,7 +50,7 @@ echo "### Done."
 echo -e "### Setup cron for root:"
 checkCron=`crontab -l -u root | grep -e "^\*.*${papplyName}\.sh$"`
 if [ "${checkCron}" == "" ];  then
-    { crontab -l -u root; echo '*/3 * * * * /bin/bash /usr/local/bin/${papplyName}.sh'; } | crontab -u root -
+    { crontab -l -u root; echo '*/5 * * * * /bin/bash /usr/local/bin/${papplyName}.sh'; } | crontab -u root -
   else
     echo "Papply cron job for root was already added."
 fi
