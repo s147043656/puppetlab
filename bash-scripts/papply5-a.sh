@@ -1,22 +1,20 @@
 #!/bin/bash
 
 userName=root
+userHome=`eval echo ~${userName}`
+
 gitUrl="git@github.com:s147043656/puppetlab.git"
 branchName=master
+gitDir=${userHome}/git-${branchName}
+
 puppetExec=/opt/puppetlabs/bin/puppet
-puppetLogs=/var/log/puppetlabs/puppet/papply5.log
+puppetManifest=${gitDir}/puppet5/manifests/site.pp
+puppetModules=${gitDir}/puppet5/modules/
+puppetLog=/var/log/puppetlabs/puppet/papply5-a.log
 
-userHome=`eval echo ~${userName}`
-gitDir=${userHome}/git
-
-if [ -d ${gitDir} ];
-  then
+if [ -d ${gitDir} ]; then
     rm -rf $gitDir
 fi
 
 git clone -b ${branchName} ${gitUrl} ${gitDir}
-
-${puppetExec} apply ${gitDir}/puppet5/manifests/site.pp \
-  --modulepath=${gitDir}/puppet5/modules/ \
-  --logdest ${puppetLog} \
-  $*
+${puppetExec} apply ${puppetManifest} --modulepath=${puppetModules} --logdest ${puppetLog} $*
