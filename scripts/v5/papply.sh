@@ -14,7 +14,7 @@ puppetLog=/var/log/puppetlabs/puppet/papply.log
 
 if [ ! -d ${gitDir} ]; then
     git clone -b ${branchName} ${gitUrl} ${gitDir}
-  elif
+  else
     cd ${gitDir} && git pull
 fi
 
