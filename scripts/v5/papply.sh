@@ -18,5 +18,4 @@ if [ ! -d ${gitDir} ]; then
     cd ${gitDir} && git pull
 fi
 
-git clone -b ${branchName} ${gitUrl} ${gitDir}
 ${puppetExec} apply ${puppetManifest} --modulepath=${puppetModules} --logdest ${puppetLog} $*
