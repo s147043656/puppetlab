@@ -40,7 +40,7 @@ echo "### Installing deployment scripts and variables:"
 cp deployment-variables /usr/local/etc/
 . /usr/local/etc/deployment-variables
 cp gitupdate.sh /usr/local/bin && chmod 755 /usr/local/bin/gitupdate.sh && chown root.root /usr/local/bin/gitupdate.sh
-cp papply.sh /usr/local/bin && chmod 755 /usr/local/bin/papply.sh && chown root.root /usr/local/bin/papply.sh
+cp papply5.sh /usr/local/bin && chmod 755 /usr/local/bin/papply5.sh && chown root.root /usr/local/bin/papply5.sh
 echo "### Done."
 
 echo "### Creating ${userName} user:"
@@ -52,10 +52,16 @@ echo "### Done."
 echo "### Installing pupper-server:"
   case $distrType in
     RedHat|CentOS)
-      yum install -y puppet-server
+      rpm -Uvh https://yum.puppetlabs.com/puppet5/puppet5-release-el-7.noarch.rpm
+      yum install -y puppet-agent
+      yum install -y puppetserver
       ;;
     Debian|Ubuntu)
-      apt-get -y install puppetmaster
+      wget https://apt.puppetlabs.com/puppet5-release-xenial.deb
+      dpkg -i puppet5-release-xenial.deb
+      apt update
+      apt-get -y install puppet-agent
+      apt-get -y install puppetserver
       ;;
   esac
 echo "### Done."
@@ -71,10 +77,10 @@ fi
 echo "### Done."
 
 echo "### Cron for root:"
-checkCron=`crontab -l -u root | grep -e "^\*.*papply\.sh$"`
+checkCron=`crontab -l -u root | grep -e "^\*.*papply5\.sh$"`
 if [ "${checkCron}" == "" ];
   then
-    { crontab -l -u root; echo '*/1 * * * * /usr/local/bin/papply.sh'; } | crontab -u root -
+    { crontab -l -u root; echo '*/3 * * * * /usr/local/bin/papply5.sh'; } | crontab -u root -
   else
     echo "Papply cron job for root was already added."
 fi
