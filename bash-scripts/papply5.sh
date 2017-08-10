@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 . /usr/local/etc/deployment-variables
 
@@ -6,4 +6,3 @@
   --modulepath=${gitDir}/puppet5/modules/ \
   --logdest /var/log/puppetlabs/puppet/papply5.log \
   $*
-
