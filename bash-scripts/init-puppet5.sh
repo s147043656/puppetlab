@@ -70,7 +70,7 @@ echo "### Cron for ${userName}:"
 checkCron=`crontab -l -u ${userName} | grep -e "^\*.*gitupdate\.sh$"`
 if [ "${checkCron}" == "" ];
   then
-    { crontab -l -u ${userName}; echo '*/1 * * * * /usr/local/bin/gitupdate.sh'; } | crontab -u ${userName} -
+    { crontab -l -u ${userName}; echo '*/1 * * * * /bin/bash /usr/local/bin/gitupdate.sh'; } | crontab -u ${userName} -
   else
     echo "Gitupdate cron job for ${userName} was already added."
 fi
@@ -80,7 +80,7 @@ echo "### Cron for root:"
 checkCron=`crontab -l -u root | grep -e "^\*.*papply5\.sh$"`
 if [ "${checkCron}" == "" ];
   then
-    { crontab -l -u root; echo '*/3 * * * * /usr/local/bin/papply5.sh'; } | crontab -u root -
+    { crontab -l -u root; echo '*/3 * * * * /bin/bash /usr/local/bin/papply5.sh'; } | crontab -u root -
   else
     echo "Papply cron job for root was already added."
 fi
