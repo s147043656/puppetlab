@@ -1,13 +1,13 @@
 # Manage standard set of packages
 
-class base-all {
+class base_all {
   package { [ 'mc', 
               'ntpdate'
             ]:
     ensure => installed,
   }
   file { '/etc/hosts':
-    source => 'puppet:///modules/base-all/etc/hosts',
+    source => 'puppet:///modules/base_all/etc/hosts',
   }
   file { '/etc/localtime':
     ensure => link,
