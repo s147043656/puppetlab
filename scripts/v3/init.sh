@@ -40,7 +40,7 @@ echo "### Installing deployment scripts and variables:"
 cp deployment-variables /usr/local/etc/
 . /usr/local/etc/deployment-variables
 cp gitupdate.sh /usr/local/bin && chmod 755 /usr/local/bin/gitupdate.sh && chown root.root /usr/local/bin/gitupdate.sh
-cp papply3.sh /usr/local/bin && chmod 755 /usr/local/bin/papply3.sh && chown root.root /usr/local/bin/papply3.sh
+cp papply.sh /usr/local/bin && chmod 755 /usr/local/bin/papply.sh && chown root.root /usr/local/bin/papply.sh
 echo "### Done."
 
 echo "### Creating ${userName} user:"
@@ -71,10 +71,10 @@ fi
 echo "### Done."
 
 echo "### Cron for root:"
-checkCron=`crontab -l -u root | grep -e "^\*.*papply3\.sh$"`
+checkCron=`crontab -l -u root | grep -e "^\*.*papply\.sh$"`
 if [ "${checkCron}" == "" ];
   then
-    { crontab -l -u root; echo '*/3 * * * * /usr/local/bin/papply3.sh'; } | crontab -u root -
+    { crontab -l -u root; echo '*/3 * * * * /usr/local/bin/papply.sh'; } | crontab -u root -
   else
     echo "Papply cron job for root was already added."
 fi

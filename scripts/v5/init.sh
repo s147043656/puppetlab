@@ -2,7 +2,7 @@
 
 # This script installs deployment system to use git and puppet
 
-papplyName=papply5-a
+papplyName=papply
 
 if [ $# -lt 1 ]; then
     echo "Usage: $0 newHostName" && exit 1
