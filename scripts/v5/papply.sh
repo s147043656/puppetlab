@@ -12,8 +12,10 @@ puppetManifest=${gitDir}/puppet5/manifests/site.pp
 puppetModules=${gitDir}/puppet5/modules/
 puppetLog=/var/log/puppetlabs/puppet/papply.log
 
-if [ -d ${gitDir} ]; then
-    rm -rf $gitDir
+if [ ! -d ${gitDir} ]; then
+    git clone -b ${branchName} ${gitUrl} ${gitDir}
+  elif
+    cd ${gitDir} && git pull
 fi
 
 git clone -b ${branchName} ${gitUrl} ${gitDir}
