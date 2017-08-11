@@ -4,8 +4,7 @@ class base_all {
   package { [ 'lynx',
               'ntpdate',
               'mc', 
-              'vim',
-              'w3m',
+              'vim'
             ]:
     ensure => installed,
   }
