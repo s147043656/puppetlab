@@ -1,8 +1,11 @@
 # Manage standard set of packages
 
 class base_all {
-  package { [ 'mc', 
-              'ntpdate'
+  package { [ 'lynx',
+              'ntpdate',
+              'mc', 
+              'vim',
+              'w3m',
             ]:
     ensure => installed,
   }
