@@ -9,7 +9,7 @@ gitDir=${userHome}/git-${branchName}
 
 puppetExec=/opt/puppetlabs/bin/puppet
 puppetManifest=${gitDir}/puppet5/manifests
-puppetModules=${gitDir}/puppet5/modules/
+puppetModules=${gitDir}/puppet5/modules
 puppetLog=/var/log/puppetlabs/puppet/papply.log
 
 if [ ! -d ${gitDir} ]; then
