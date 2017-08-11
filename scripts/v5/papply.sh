@@ -8,7 +8,7 @@ branchName=master
 gitDir=${userHome}/git-${branchName}
 
 puppetExec=/opt/puppetlabs/bin/puppet
-puppetManifest=${gitDir}/puppet5/manifests/site.pp
+puppetManifest=${gitDir}/puppet5/manifests
 puppetModules=${gitDir}/puppet5/modules/
 puppetLog=/var/log/puppetlabs/puppet/papply.log
 
