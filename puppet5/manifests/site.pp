@@ -7,8 +7,8 @@ node default {
   include base_all
 }
 
-import 'nodes_centos7.pp'
-import 'nodes_ubuntu1604.pp'
+include 'nodes_centos7.pp'
+include 'nodes_ubuntu1604.pp'
 
 #node c7i2 {
 #  file { '/tmp/hello':
