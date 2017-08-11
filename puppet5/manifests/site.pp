@@ -1,11 +1,11 @@
 # manifests/site.pp
 
-node default {
-  file { '/tmp/hello':
-    content => "Hello Default!\n",
-  }
-  include base_all
-}
+#node default {
+#  file { '/tmp/hello':
+#    content => "Hello Default!\n",
+#  }
+#  include base_all
+#}
 
 #include 'nodes_centos7.pp'
 #include 'nodes_ubuntu1604.pp'
