@@ -17,7 +17,7 @@ class base_all {
     target => '/usr/share/zoneinfo/Europe/Kiev',
   }
   cron { 'ntpdate-update':
-    command => '/sbin/ntpdate ntp.ubuntu.com',
+    command => '/usr/sbin/ntpdate ntp.ubuntu.com',
     user => 'root',
     minute => '*/3',
     require => [ Package['ntpdate'], File['/etc/localtime'], ],
