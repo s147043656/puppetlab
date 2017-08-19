@@ -18,6 +18,18 @@ class network_config {
     file { "/etc/network/interfaces":
       content => template('network_config/eth-deb.erb'),
     }
+    exec { "Flush IP addr":
+      command => "ip addr flush $iface_name",
+      path => '/bin',
+      subscribe => File["/etc/network/interfaces"],
+      refreshonly => true,
+    }
+    exec { "systemctl restart networking.service":
+      path => '/usr/bin',
+      provider => shell,
+      subscribe => Exec["Flush IP addr"],
+      refreshonly => true,
+    }
   }
 
 }
