@@ -6,7 +6,7 @@ class network_config {
     file { "/etc/sysconfig/network-scripts/ifcfg-${iface_name}":
       content => template('network_config/eth-rh.erb'),
     }
-    exec { 'systemctl restart networking.service':
+    exec { 'systemctl restart NetworkManager.service':
       path => '/usr/bin',
       provider => shell,
       subscribe => File["/etc/sysconfig/network-scripts/ifcfg-${iface_name}"],
