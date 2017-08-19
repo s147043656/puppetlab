@@ -25,7 +25,7 @@ class network_config {
       refreshonly => true,
     }
     exec { "systemctl restart networking.service":
-      path => '/usr/bin',
+      path => '/usr',
       provider => shell,
       subscribe => Exec["Flush IP addr"],
       refreshonly => true,
