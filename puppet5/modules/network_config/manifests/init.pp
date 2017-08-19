@@ -8,7 +8,7 @@ class network_config {
     }
     exec { "Flush IP addr":
       command => "ip addr flush $iface_name",
-      path => '/bin',
+      path => '/usr/sbin',
       subscribe => File["/etc/sysconfig/network-scripts/ifcfg-${iface_name}"],
       refreshonly => true,
     }
