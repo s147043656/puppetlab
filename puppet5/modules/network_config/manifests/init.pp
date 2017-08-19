@@ -6,10 +6,16 @@ class network_config {
     file { "/etc/sysconfig/network-scripts/ifcfg-${iface_name}":
       content => template('network_config/eth-rh.erb'),
     }
+    exec { "Flush IP addr":
+      command => "ip addr flush $iface_name",
+      path => '/bin',
+      subscribe => File["/etc/sysconfig/network-scripts/ifcfg-${iface_name}"],
+      refreshonly => true,
+    }
     exec { 'systemctl restart NetworkManager.service':
       path => '/usr/bin',
       provider => shell,
-      subscribe => File["/etc/sysconfig/network-scripts/ifcfg-${iface_name}"],
+      subscribe => Exec["Flush IP addr"],
       refreshonly => true,
     }
   }
