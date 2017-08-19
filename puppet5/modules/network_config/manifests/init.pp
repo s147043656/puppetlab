@@ -11,6 +11,7 @@ class network_config {
       provider => shell,
       subscribe => File["/etc/sysconfig/network-scripts/ifcfg-${iface_name}"],
       refreshonly => true,
+    }
   }
 
   define set_ip_addr_deb ( $iface_name, $ip_addr ) {
