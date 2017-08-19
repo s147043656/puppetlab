@@ -1,3 +1,4 @@
+### Centos 7 nodes
 
 node c7i2 {
   file { '/tmp/hello':
