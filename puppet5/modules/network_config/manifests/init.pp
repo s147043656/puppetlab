@@ -6,6 +6,11 @@ class network_config {
     file { "/etc/sysconfig/network-scripts/ifcfg-${iface_name}":
       content => template('network_config/eth-rh.erb'),
     }
+    exec { 'systemctl restart networking.service':
+      path => '/usr/bin',
+      provider => shell,
+      subscribe => File["/etc/sysconfig/network-scripts/ifcfg-${iface_name}"],
+      refreshonly => true,
   }
 
   define set_ip_addr_deb ( $iface_name, $ip_addr ) {
