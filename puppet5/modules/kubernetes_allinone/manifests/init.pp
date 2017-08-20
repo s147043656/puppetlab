@@ -4,7 +4,6 @@
 class kubernetes_allinone {
 
 # 1.3.1 - 2. Install Kubernetes
-
   package { 'kubernetes-client':
     ensure => installed,
   }
@@ -16,34 +15,25 @@ class kubernetes_allinone {
   }
 
 # 1.3.1 - 3. Disable firewall
-
   service { 'firewalld':
     ensure => stopped,
     enable => false,
   }
 
 # 1.3.1 - 5. Install registry
-
   package { 'docker-distribution':
     ensure => installed,
   }
 
 # 1.3.1 - 6. Start the local Docker Registry
-
   service { 'docker-distribution':
     ensure => running,
     enable => true,
     require => Package['docker-distribution'],
   }
-  service { 'etcd':
-    ensure => running,
-    enable => true,
-    require => Package['etcd'],
-  }
 
 # 1.3.2 - 2. Create manifest files
 # 1.3.2 - 3. Cofigure the kublet service
-
   file { '/etc/kubernetes':
     ensure => directory,
     source => "puppet:///modules/kubernetes_allinone/etc",
@@ -51,21 +41,8 @@ class kubernetes_allinone {
   }
 
 # Install bootstrap script
-
   file { '/usr/local/bin/kubernetes-init.sh':
     source => "puppet:///modules/kubernetes_allinone/usr/local/bin/kubernetes-init.sh",
   }
-
-#  package { 'java-1.8.0-openjdk':
-#    ensure => installed,
-#  }
-#  package { 'docker':
-#    ensure => installed,
-#  }
-#  service { 'docker':
-#    ensure => running,
-#    enable => true,
-#    require => Package['docker'],
-#  }
 
 }
