@@ -44,7 +44,7 @@ class kubernetes_allinone {
 # 1.3.2 - 3. Cofigure the kublet service
   file { '/etc/kubernetes':
     ensure => directory,
-    source => "puppet:///modules/kubernetes_allinone/etc",
+    source => "puppet:///modules/kubernetes_allinone/etc/kubernetes",
     recurse => 'true',
   }
 
