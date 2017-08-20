@@ -1,8 +1,8 @@
 ### Ubuntu 16.04 nodes
 
-node u16i1 {
+node u16i101 {
   file { '/tmp/hello':
-    content => "Hello u16i1!\n",
+    content => "Hello u16i101!\n",
   }
   include network_config
     network_config::set_ip_addr_deb { 'Configure host only adapter':
@@ -13,9 +13,9 @@ node u16i1 {
   include base_ubuntu1604
 }
 
-node u16i2 {
+node u16i102 {
   file { '/tmp/hello':
-    content => "Hello u16i2!\n",
+    content => "Hello u16i102!\n",
   }
   include network_config
     network_config::set_ip_addr_deb { 'Configure host only adapter':
@@ -24,4 +24,18 @@ node u16i2 {
   }
   include base_all
   include base_ubuntu1604
+}
+
+node u16i111 {
+  file { '/tmp/hello':
+    content => "Hello u16i111!\n",
+  }
+  include network_config
+    network_config::set_ip_addr_deb { 'Configure host only adapter':
+      iface_name => 'enp0s8',
+      ip_addr => '192.168.7.111',
+  }
+  include base_all
+  include base_ubuntu1604
+  include devstack_allinone
 }
