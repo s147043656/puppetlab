@@ -35,6 +35,11 @@ class kubernetes_allinone {
     enable => true,
     require => Package['docker-distribution'],
   }
+  service { 'etcd':
+    ensure => running,
+    enable => true,
+    require => Package['etcd'],
+  }
 
 # 1.3.2 - 2. Create manifest files
 # 1.3.2 - 3. Cofigure the kublet service
@@ -61,11 +66,6 @@ class kubernetes_allinone {
 #    ensure => running,
 #    enable => true,
 #    require => Package['docker'],
-#  }
-#  service { 'etcd':
-#    ensure => running,
-#    enable => true,
-#    require => Package['etcd'],
 #  }
 
 }
