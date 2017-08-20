@@ -27,7 +27,7 @@ class kubernetes_allinone {
 
 # 1.3.1 - 6. Start the local Docker Registry
   file { '/etc/docker/daemon.json':
-    source => "puppet://modules/kubernetes_allinone/etc/docker/daemon.json",
+    source => "puppet:///modules/kubernetes_allinone/etc/docker/daemon.json",
   }
   service { 'docker':
     ensure => running,
