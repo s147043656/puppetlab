@@ -1,6 +1,6 @@
 # Manage Kubernetes server
 
-class kubernetes {
+class kubernetes_allinone {
 
   package { 'docker':
     ensure => installed,
