@@ -1,0 +1,21 @@
+;
+; BIND reverse data file for local loopback interface
+;
+$TTL    604800
+@   IN  SOA ns1.vtdomain. admin.vtdomain. (
+                  4     ; Serial
+             604800     ; Refresh
+              86400     ; Retry
+            2419200     ; Expire
+           604800 )   ; Negative Cache TTL
+
+; name servers - NS records
+       IN      NS      ns1.vtdomain.
+       IN      NS      ns2.vtdomain.
+
+; PTR Records
+100.   IN      PTR     ns1.vtdomain.        ; 192.168.7.100
+200.   IN      PTR     ns2.vtdomain.        ; 192.168.7.200
+2.     IN      PTR     c7i2.vtdomain.       ; 192.168.7.2
+102.   IN      PTR     u16i102.vtdomain.    ; 192.168.7.102
+
