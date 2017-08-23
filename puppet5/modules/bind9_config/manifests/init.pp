@@ -27,7 +27,4 @@ class bind9_config {
     subscribe => File["/etc/bind"],
     refreshonly => true,
   }
-  file { '/data01':
-    ensure => directory,
-  }
 }
