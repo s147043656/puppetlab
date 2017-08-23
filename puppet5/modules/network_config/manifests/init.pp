@@ -26,8 +26,8 @@ class network_config {
     }
     exec { "Flush IP addr":
 #      command => "ip addr flush $iface_name",
-      command => "ifdown --force $iface && sudo ip addr flush dev $iface && sudo ifup --force $iface",
-      path => '/bin',
+      command => "ifdown --force $iface_name && ip addr flush dev $iface_name && ifup --force $iface_name",
+      path => '/sbin',
       subscribe => File["/etc/network/interfaces"],
       refreshonly => true,
     }
