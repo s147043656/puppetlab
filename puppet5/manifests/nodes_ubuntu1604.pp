@@ -39,3 +39,16 @@ node u16i111 {
   include base_ubuntu1604
   include devstack_allinone
 }
+
+node ns1 {
+  file { '/tmp/hello':
+    content => "Hello ns1!\n",
+  }
+  include network_config
+    network_config::set_ip_addr_deb { 'Configure host only adapter':
+      iface_name => 'enp0s8',
+      ip_addr => '192.168.7.100',
+  }
+  include base_all
+  include bind9_config
+}

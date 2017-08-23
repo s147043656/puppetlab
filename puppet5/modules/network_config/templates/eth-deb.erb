@@ -16,3 +16,6 @@ auto <%= @iface_name %>
 iface <%= @iface_name %> inet static
 address <%= @ip_addr %>
 netmask 255.255.255.0
+
+dns-nameservers 192.168.7.100 10.25.0.2 8.8.8.8
+dns-search vtdomain
