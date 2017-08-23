@@ -25,9 +25,9 @@ class network_config {
       content => template('network_config/eth-deb.erb'),
     }
     exec { "Flush IP addr":
-#      command => "ip addr flush $iface_name",
-      command => "ifdown --force $iface_name && ip addr flush dev $iface_name && ifup --force $iface_name",
-      path => '/sbin',
+##      command => "ip addr flush $iface_name",
+      command => "/sbin/ifdown --force $iface_name && /bin/ip addr flush dev $iface_name && /sbin/ifup --force $iface_name",
+##      path => '/bin',
       subscribe => File["/etc/network/interfaces"],
       refreshonly => true,
     }
