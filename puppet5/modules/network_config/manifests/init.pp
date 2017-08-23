@@ -31,12 +31,12 @@ class network_config {
       subscribe => File["/etc/network/interfaces"],
       refreshonly => true,
     }
-#    exec { "systemctl restart networking.service":
-#      path => '/bin',
-#      provider => shell,
-#      subscribe => Exec["Flush IP addr"],
-#      refreshonly => true,
-#    }
+    exec { "systemctl restart networking.service":
+      path => '/bin',
+      provider => shell,
+      subscribe => Exec["Flush IP addr"],
+      refreshonly => true,
+    }
   }
 
 }
