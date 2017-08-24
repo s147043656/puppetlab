@@ -3,63 +3,61 @@
 ;
 $TTL    604800
 @   IN  SOA ns1.vtdomain. admin.vtdomain. (
-                  6     ; Serial
+                 13     ; Serial
              604800     ; Refresh
               86400     ; Retry
             2419200     ; Expire
-           604800 )   ; Negative Cache TTL
+           604800 )     ; Negative Cache TTL
 
 ; name servers - NS records
        IN       NS      ns1.vtdomain.
        IN       NS      ns2.vtdomain.
 
 ; Name servers PTR Records
-100.   IN       PTR     ns1.vtdomain.        ; 192.168.7.100
-200.   IN       PTR     ns2.vtdomain.        ; 192.168.7.200
+100   IN       PTR     ns1.vtdomain.        ; 192.168.7.100
+200   IN       PTR     ns2.vtdomain.        ; 192.168.7.200
 
 ; 192.168.7.0/24 PTR Records
-2.     IN       PTR     c7i2.vtdomain.       ; 192.168.7.2
-102.   IN       PTR     u16i102.vtdomain.    ; 192.168.7.102
 
-1.     IN       PTR     c7i1
-2.     IN       PTR     c7i2
-3.     IN       PTR     c7i3
-4.     IN       PTR     c7i4
-5.     IN       PTR     c7i5
-6.     IN       PTR     c7i6
-7.     IN       PTR     c7i7
-8.     IN       PTR     c7i8
-9.     IN       PTR     c7i9
-10.    IN       PTR     c7i10
-11.    IN       PTR     c7i11
-12.    IN       PTR     c7i12
-13.    IN       PTR     c7i13
-14.    IN       PTR     c7i14
-15.    IN       PTR     c7i15
-16.    IN       PTR     c7i16
-c7i17
+1     IN       PTR     c7i1.vtdomain.        ; 192.168.7.1
+2     IN       PTR     c7i2.vtdomain.        ; 192.168.7.2
+3     IN       PTR     c7i3.vtdomain.        ; 192.168.7.3
+4     IN       PTR     c7i4.vtdomain.        ; 192.168.7.4
+5     IN       PTR     c7i5.vtdomain.        ; 192.168.7.5
+6     IN       PTR     c7i6.vtdomain.        ; 192.168.7.6
+7     IN       PTR     c7i7.vtdomain.        ; 192.168.7.7
+8     IN       PTR     c7i8.vtdomain.        ; 192.168.7.8
+9     IN       PTR     c7i9.vtdomain.        ; 192.168.7.9
+10    IN       PTR     c7i10.vtdomain.       ; 192.168.7.10
+11    IN       PTR     c7i11.vtdomain.       ; 192.168.7.11
+12    IN       PTR     c7i12.vtdomain.       ; 192.168.7.12
+13    IN       PTR     c7i13.vtdomain.       ; 192.168.7.13
+14    IN       PTR     c7i14.vtdomain.       ; 192.168.7.14
+15    IN       PTR     c7i15.vtdomain.       ; 192.168.7.15
+16    IN       PTR     c7i16.vtdomain.       ; 192.168.7.16
+17    IN       PTR     c7i17.vtdomain.       ; 192.168.7.17
 
-100.   IN       PTR     lts1604
-100.   IN       PTR     gerrit2.lts1604
-100.   IN       PTR     git.lts1604
-100.   IN       PTR     gitweb.lts1604
-100.   IN       PTR     jenkins.lts1604
-100.   IN       PTR     openstack.lts1604
-100.   IN       PTR     petclinic.lts1604
-100.   IN       PTR     sonar.lts1604
-100.   IN       PTR     springlab.lts1604
-100.   IN       PTR     tomcat8.lts1604
+100   IN       PTR     lts1604.vtdomain.              ; 192.168.7.100
+100   IN       PTR     gerrit2.lts1604.vtdomain.      ; 192.168.7.100
+100   IN       PTR     git.lts1604.vtdomain.          ; 192.168.7.100
+100   IN       PTR     gitweb.lts1604.vtdomain.       ; 192.168.7.100
+100   IN       PTR     jenkins.lts1604.vtdomain.      ; 192.168.7.100
+100   IN       PTR     openstack.lts1604.vtdomain.    ; 192.168.7.100
+100   IN       PTR     petclinic.lts1604.vtdomain.    ; 192.168.7.100
+100   IN       PTR     sonar.lts1604.vtdomain.        ; 192.168.7.100
+100   IN       PTR     springlab.lts1604.vtdomain.    ; 192.168.7.100
+100   IN       PTR     tomcat8.lts1604.vtdomain.      ; 192.168.7.100
 
-101.   IN       PTR     u16i101
-102.   IN       PTR     u16i102
-103.   IN       PTR     u16i103
-104.   IN       PTR     u16i104
-105.   IN       PTR     u16i105
-106.   IN       PTR     u16i106
-107.   IN       PTR     u16i107
-108.   IN       PTR     u16i108
-109.   IN       PTR     u16i109
-110.   IN       PTR     u16i110
-111.   IN       PTR     openstack.u16i111
-111.   IN       PTR     u16i111
-112.   IN       PTR     u16i112
+101   IN       PTR     u16i101.vtdomain.       ; 192.168.7.101
+102   IN       PTR     u16i102.vtdomain.       ; 192.168.7.102
+103   IN       PTR     u16i103.vtdomain.       ; 192.168.7.103
+104   IN       PTR     u16i104.vtdomain.       ; 192.168.7.104
+105   IN       PTR     u16i105.vtdomain.       ; 192.168.7.105
+106   IN       PTR     u16i106.vtdomain.       ; 192.168.7.106
+107   IN       PTR     u16i107.vtdomain.       ; 192.168.7.107
+108   IN       PTR     u16i108.vtdomain.       ; 192.168.7.108
+109   IN       PTR     u16i109.vtdomain.       ; 192.168.7.109
+110   IN       PTR     u16i110.vtdomain.       ; 192.168.7.110
+111   IN       PTR     openstack.u16i111.vtdomain.       ; 192.168.7.111
+111   IN       PTR     u16i111.vtdomain.       ; 192.168.7.111
+112   IN       PTR     u16i112.vtdomain.       ; 192.168.7.112

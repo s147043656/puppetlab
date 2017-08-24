@@ -3,7 +3,7 @@
 ;
 $TTL    604800
 @   IN  SOA ns1.vtdomain. admin.ns1.vtdomain. (
-                  6     ; Serial
+                 13     ; Serial
              604800     ; Refresh
               86400     ; Retry
             2419200     ; Expire
