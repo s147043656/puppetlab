@@ -11,6 +11,9 @@ class base_all {
   file { '/etc/hosts':
     source => 'puppet:///modules/base_all/etc/hosts',
   }
+  file { '/etc/resolv.conf':
+    source => 'puppet:///modules/base_all/etc/resolv.conf',
+  }
   file { '/etc/localtime':
     ensure => link,
     target => '/usr/share/zoneinfo/Europe/Kiev',
