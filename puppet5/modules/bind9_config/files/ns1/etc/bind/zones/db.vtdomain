@@ -3,7 +3,7 @@
 ;
 $TTL    604800
 @   IN  SOA ns1.vtdomain. admin.ns1.vtdomain. (
-                  5     ; Serial
+                  6     ; Serial
              604800     ; Refresh
               86400     ; Retry
             2419200     ; Expire
@@ -37,7 +37,7 @@ c7i15                   IN      A       192.168.7.15
 c7i16                   IN      A       192.168.7.16
 c7i17                   IN      A       192.168.7.17
 
-lst1604                 IN      A       192.168.7.100
+lts1604                 IN      A       192.168.7.100
 gerrit2.lts1604         IN      A       192.168.7.100
 git.lts1604             IN      A       192.168.7.100
 gitweb.lts1604          IN      A       192.168.7.100
