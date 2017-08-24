@@ -25,18 +25,18 @@ class network_config {
       content => template('network_config/eth-deb.erb'),
     }
     exec { "Flush IP addr":
-#      command => "ip addr flush $iface_name",
-      command => "ifdown --force $iface && sudo ip addr flush dev $iface && sudo ifup --force $iface",
+      command => "ip addr flush $iface_name",
+#      command => "/sbin/ifdown --force $iface_name && /bin/ip addr flush dev $iface_name && /sbin/ifup --force $iface_name",
       path => '/bin',
       subscribe => File["/etc/network/interfaces"],
       refreshonly => true,
     }
-#    exec { "systemctl restart networking.service":
-#      path => '/bin',
-#      provider => shell,
-#      subscribe => Exec["Flush IP addr"],
-#      refreshonly => true,
-#    }
+    exec { "systemctl restart networking.service":
+      path => '/bin',
+      provider => shell,
+      subscribe => Exec["Flush IP addr"],
+      refreshonly => true,
+    }
   }
 
 }
